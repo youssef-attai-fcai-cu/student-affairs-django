@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
     <title>Add Student</title>
   </head>
   <body>
     <div style="text-align: center">
       <h1>Add Student</h1>
     </div>
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="edit.html">Edit Student Data</a></li>
@@ -18,7 +19,41 @@
         <li><a href="active.html">View Active Students</a></li>
         <li><a href="depart.html">Assign Department</a></li>
       </ul>
-    </nav>
+    </nav> -->
+    <nav>
+      <ul>
+          <li>
+              <a href="home.html">
+                  Home
+              </a>
+          </li>
+          <li>
+              <a href="view-students.html">
+                  View students
+              </a>
+          </li>
+          <li>
+              <a href="edit-student-data.html">
+                  Edit a student
+              </a>
+          </li>
+          <li>
+              <a href="add-student.html">
+                  Add a new student
+              </a>
+          </li>
+          <li>
+              <a href="search-student.html">
+                  Search for a student
+              </a>
+          </li>
+          <li>
+              <a href="student-department-assignment.html">
+                  Student department assignment
+              </a>
+          </li>
+      </ul>
+  </nav>
     <div>
       <form action="">
         <label for="name"><b>Student Name</b></label>
@@ -27,7 +62,7 @@
         <br />
 
         <label for="date"><b>Date of Birth</b></label>
-        <input type="text" name="date" />
+        <input type="date" name="date" />
         <br />
         <br />
         <label for="gpa"><b>Student GPA</b></label>
@@ -64,7 +99,7 @@
         <br />
         <br />
         <label for="phone"><b>Phone Number</b></label>
-        <input type="text" name="phone" />
+        <input type="number" name="phone" />
         <br />
         <br />
         <button type="submit">Add Student</button>

@@ -1,0 +1,11 @@
+nav > ul > li {
+    list-style: none;
+    padding: 20px;
+    text-align: center;
+}
+
+nav > ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
