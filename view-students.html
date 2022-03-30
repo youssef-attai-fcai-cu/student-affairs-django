@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="view students.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="view-students.html">
+                    View students
+                </a>
+            </li>
+            <li>
+                <a href="edit-student-data.html">
+                    Edit a student
+                </a>
+            </li>
+            <li>
+                <a href="add-student.html">
+                    Add a new student
+                </a>
+            </li>
+            <li>
+                <a href="search-student.html">
+                    Search for a student
+                </a>
+            </li>
+            <li>
+                <a href="student-department-assignment.html">
+                    Student department assignment
+                </a>
+            </li>
+        </ul>
+    </nav>
+            <div class="dropdownlist">
+                 <select name="attributes" multiple> 
+                    <option value="ID">ID</option>
+                    <option value="Student name">Student name</option>
+                    <option value="Date of birth">Date of birth</option>
+                    <option value="gpa">gpa</option>
+                    <option value="gender">gender</option>
+                    <option value="level">level</option>
+                    <option value="Department">Department</option>
+                    <option value="Email">Email</option>
+                    <option value="mobile number">mobile number</option>
+                </select>
+            </div>
+            
+    <table>
+        <caption>view students</caption>
+            <tr>
+                <th>ID</th>
+                <th>Student name</th>
+                <th>date of birth</th>
+                <th>gpa</th>
+                <th>gender</th>
+                <th>level</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Mobile number</th>
+                <th>active status</th>
+            </tr>
+        <tr>
+            <td>20200</td>
+            <td>ahmed mohamed</td>
+            <td>20-10-2000</td>
+            <td>4</td>
+            <td>Male</td>
+            <td>1</td>
+            <td>general</td>
+            <td>ahmed@gmail.com</td>
+            <td>01000000000</td>
+            <td> <select name="status"><option>Active</option><option>Inactive</option></select></td>
+        </tr>
+        
+        <tr>
+            <td>20200</td>
+            <td>mohamed salah</td>
+            <td>5-1-1995</td>
+            <td>4</td>
+            <td>Male</td>
+            <td>4</td>
+            <td>computer science</td>
+            <td>momo@gmail.com</td>
+            <td>01000000000</td>
+            <td> <select name="status"><option>Active</option><option>Inactive</option></select></td>
+        </tr>
+        
+        <tr>
+            <td>20200</td>
+            <td>sherif hassan</td>
+            <td>1-1-2002</td>
+            <td>4</td>
+            <td>male</td>
+            <td>2</td>
+            <td>general</td>
+            <td>sherif_h@gmail.com</td>
+            <td>01000000000</td>
+            <td> <select name="status"><option>Active</option><option>Inactive</option></select></td>
+        </tr>
+    </table>
+</body>
+</html>

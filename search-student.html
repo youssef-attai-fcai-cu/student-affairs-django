@@ -1,1 +1,70 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Search</title>
+        <style>
+            *{box-sizing:border-box}
+            
+            .s input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid black;  
+            }
+            .s button {
+            padding: 6px;
+            font-size: 17px;
+            background: #ddd;
+            border: 1px solid black;
+            cursor: pointer;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="view-students.html">
+                        View students
+                    </a>
+                </li>
+                <li>
+                    <a href="edit-student-data.html">
+                        Edit a student
+                    </a>
+                </li>
+                <li>
+                    <a href="add-student.html">
+                        Add a new student
+                    </a>
+                </li>
+                <li>
+                    <a href="search-student.html">
+                        Search for a student
+                    </a>
+                </li>
+                <li>
+                    <a href="student-department-assignment.html">
+                        Student department assignment
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="s">
+            <p>welcome, you can view students from here:</p>
+            <input type="text" placeholder="write student name..">
+            <button type="submit">search</button>
+        </div>
+    </body>
+    
+</html>
