@@ -7,20 +7,67 @@
         <link rel="stylesheet" href="styles.css">
         <title>Search</title>
         <style>
+            body{
+                background-image: url('SearchStudent.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            
+            #welcome{
+                color:rgb(106, 101, 101);
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 28px;
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            #center{
+                text-align: center;
+            }
+
+
             *{box-sizing:border-box}
             
+
+
             .s input[type=text] {
             padding: 6px;
             margin-top: 8px;
             font-size: 17px;
-            border: 1px solid black;  
+            border: none;
+            border-radius: 12px; 
+            transition: transform .2s; 
             }
+
+
+            
+
+            .s input[type=text]:hover{
+                -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Safari 3-8 */
+                transform: scale(1.08); 
+            }
+
+
             .s button {
-            padding: 6px;
+            padding: 7px;
             font-size: 17px;
-            background: #ddd;
-            border: 1px solid black;
+            background: rgb(154, 146, 146);
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
+            }
+            
+            #zoom{
+                transition: transform .2s;
+            }
+
+            #zoom:hover{
+                -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Safari 3-8 */
+                transform: scale(1.2); 
             }
             
         </style>
@@ -61,9 +108,12 @@
             </ul>
         </nav>
         <div class="s">
-            <p>welcome, you can view students from here:</p>
-            <input type="text" placeholder="write student name..">
-            <button type="submit">search</button>
+            <br>
+            <p id="welcome">welcome, you can view students from here:</p>
+            <div id="center">
+                <input type="text" placeholder="write student name..">
+                <button id="zoom" type="submit">search</button>
+            </div>
         </div>
     </body>
     
