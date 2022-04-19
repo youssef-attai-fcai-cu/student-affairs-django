@@ -41,59 +41,75 @@
         </li>
       </ul>
     </nav>
-    <div style="text-align: center">
+   <div class="bigcontainer">
+    <div>
       <h1>Add Student</h1>
     </div>
-    <div>
-      <form action="">
+    
+    <div class="field-container">
+      <span class="student">
         <label for="name"><b>Student Name</b></label>
-        <input type="text" name="name" />
-        <br />
-        <br />
+        <input type="text" name="name" required />
+      </span>
 
+      <span class="date">
         <label for="date"><b>Date of Birth</b></label>
-        <input type="date" name="date" />
-        <br />
-        <br />
+        <input type="date" name="date" required />
+      </span>
+
+      <span class="gpa">
         <label for="gpa"><b>Student GPA</b></label>
-        <input type="text" name="gpa" />
-        <br />
-        <br />
-        <label for="gender"
-          ><b>Student's Gender <br /></b>
+        <input type="text" name="gpa" required />
+      </span>
+
+      <span class="gender">
+        <label for="gender"><b>Student's Gender <br /></b>
         </label>
-        <input type="radio" name="1" /> Male
-        <input type="radio" name="1" /> Female
-        <br />
-        <br />
-        <label for="level"
-          ><b>Student's Level <br /></b
-        ></label>
-        <input type="radio" name="2" /> Level 1
-        <input type="radio" name="2" /> Level 2
-        <input type="radio" name="2" /> Level 3
-        <input type="radio" name="2" /> Level 4
-        <br />
-        <br />
+        <div class="gender-pick">
+        <input class="precedeGender" type="radio" name="1" /> <p>Male</p>
+        <input type="radio" name="1" /> <p>Female</p> </div>
+      </span>
+
+      <span class="level">
+        <label for="level"><b>Student's Level <br /></b></label>
+        <div class="level-pick">
+        <input class="precedeLevel" type="radio" name="2" />
+          <p id="lvl1">Level 1</p>
+          <input type="radio" name="2" />
+          <p id="lvl2">Level 2</p>
+          <input type="radio" name="2" />
+          <p id="lvl3">Level 3</p>
+          <input type="radio" name="2" />
+          <p id="lvl4">Level 4</p>
+        </div>
+      </span>
+
+      <span class="status">
         <label for="status"><b>Current status</b> <br /></label>
-        <input type="radio" name="3" /> Active
-        <input type="radio" name="3" /> Inactive
-        <br />
-        <br />
+        <div class="status-pick">
+          <input class="precedeStatus" type="radio" name="3" /> <p>Active</p>
+          <input type="radio" name="3" /> <p>Inactive</p> </div>
+      </span>
+      
+      <span class="department">
         <label for="department"><b>Student's Department</b></label>
-        <input type="text" name="department" />
-        <br />
-        <br />
+          <input type="text" name="department" />
+      </span>
+
+      <span class="email">
         <label for="email"><b>Student E-mail</b></label>
-        <input type="email" name="email" id="" />
-        <br />
-        <br />
+          <input type="email" name="email" id=""/>
+      </span>
+
+      <span class="phone">
         <label for="phone"><b>Phone Number</b></label>
-        <input type="number" name="phone" />
-        <br />
-        <br />
+          <input type="number" name="phone" />
+      </span>
+
+      <div class="btn">
         <button type="submit">Add Student</button>
-      </form>
+      </div>
     </div>
+    
   </body>
 </html>
