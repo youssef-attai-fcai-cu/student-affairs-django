@@ -41,9 +41,11 @@ input {
     margin: 1rem 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
+    transition-duration: 0.5s;
 }
 
 input:hover {
+    transition-duration: 0.5s;
     background-color: white;
 }
 
@@ -52,10 +54,13 @@ select {
     margin: 1rem 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
+    transition-duration: 0.5s;
 }
 
 select:hover {
+    transition-duration: 0.5s;
     background-color: white;
+    
 }
 
 .btn-add {
@@ -68,8 +73,10 @@ select:hover {
     margin: 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
+    transition-duration: 0.5s;
 }
 
 .add-btn:hover {
+    transition-duration: 0.5s;
     background-color: white;
 }
