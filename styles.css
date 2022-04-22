@@ -93,6 +93,42 @@ li a:hover {
 
 
 
+
+/* ------------------HomePage---------------- */
+
+.home-page {
+  /* background-color: #24252A;
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  margin: 600px;
+  padding: 500px 500px;  */
+
+  min-height: 100vh;
+  width: 100%;
+  background-color: #24252A;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+
+.text_ {
+  text-align: center;
+  font-size: 25px;
+  width: 100%;
+  color: #edf0f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+
+
+
+
 /* Hover For Visit Our Home page */
 .hero-btn {
   display: inline-block;
@@ -254,3 +290,70 @@ nav .fa {
   visibility: visible;
   top: -70%;
 }
+
+/* ------------------------------edit-student-body------------------------------------ */
+
+#edit-student-body {
+  background-image: url(images/team2.jpeg );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* label {
+  width: 10px;
+  margin: 4px;
+}
+
+.form {
+  border-radius: 10px;
+  color: white;
+  width: 500px;
+  padding: 5px;
+  margin: auto;
+
+
+}
+
+input[type="text"] {
+  width: 450px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+input[name="gpa"] {
+  width: 45px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+
+
+input[type="email"] {
+  width: 450px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+
+h1 {
+  text-align: center;
+}
+
+#delete-student {
+  width: 250px;
+  margin-top: 1px;
+}
+
+#edit-student {
+  width: 250px;
+  margin-left: 250px;
+  margin-bottom: 5px;
+
+} */
