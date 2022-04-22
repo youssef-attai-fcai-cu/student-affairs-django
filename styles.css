@@ -37,7 +37,7 @@
   color: #fff;
 }
 
-body {
+#index-body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -117,215 +117,79 @@ nav .fa {
 }
 
 
-/*-------------------------------------------------------------------------Search Student css-----------------------------------------------------------------------*/
-#Search-Student-body {
-  background-image: url("images/SearchStudent.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-#welcome {
-  color: rgb(106, 101, 101);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 25px;
-  text-align: center;
-  margin-top: 40px;
-}
-
-.search-box {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  height: 40px;
-  border-radius: 40px;
-  padding: 10px;
-}
-
-
-
-.search-box:hover>.search-btn {
-  background: #2f3640;
-}
-
-.search-btn {
-  color: #e84118;
-  float: right;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #2f3640;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.4s;
-  text-decoration: none;
-}
-
-.search-txt {
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: rgb(106, 101, 101);
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 40px;
-  width: 240px;
-  padding: 0 6px;
-  top: 50px;
-}
-
-.content-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 1.3em;
-  min-width: 600px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  top: 150px;
-}
-
-.content-table thead tr {
-  background-color: #060606;
-  color: #ffffff;
-  text-align: left;
-  font-weight: bold;
-}
-
-.content-table th,
-.content-table td {
-  padding: 12px 70px;
-
-}
-
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-  background-color: #f3f3f36c;
-
-
-}
-
-.content-table tbody tr:hover {
-  background-color: #dddddd;
-}
-
-
-.content-table tbody tr {
-  font-weight: bold;
-  color: #e84118;
-}
-
-#no-student {
-  color: red;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  position: relative;
-  top: 150px;
-}
-
-.search-box .show-names {
-  visibility: hidden;
-  /*width: 120px;*/
-  cursor: pointer;
-  background-color: rgb(250, 149, 66);
-  color: #fff;
-  text-align: center;
-  border-radius: 15px;
-  padding: 8px 5px;
-  transform: translateX(10%);
-  position: absolute;
-  z-index: 1;
-  top: -20px;
-  left: 15px;
-}
-
-
-
-.search-box:hover .show-names {
-  visibility: visible;
-  top: -70%;
-}
-
 /* 
+  
+  #add-student {
+    background-image: url("images/banner2.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Comic Sans MS";
+  }
+  
+  .header1 {
+    font-size: xxx-large;
+    border: 2px;
+    padding: 6px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 2rem;
+  }
+  
+  .big-container {
+  
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+  
+  }
+  
+  .field-container {
+    padding: 3rem 3rem 4rem 4rem;
+    background-color: rgba(117, 181, 255, 0.8);
+    border-radius: 3rem;
+    transition-duration: 0.5s;
+  }
+  
+  .field-container:hover {
+    transition-duration: 0.5s;
+    background-color: rgb(117, 181, 255);
+  }
+  
+  input {
+    padding: 0.5rem;
+    margin: 1rem 1rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.66);
+  }
+  input:hover{
+    background-color: white;
+  }
+  
+  select {
+    padding: 0.5rem;
+    margin: 1rem 1rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.66);
+  }
+  select:hover{
+    background-color: white;
+  }
+  
+  .btn-add {
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .add-btn {
+    padding: 0.5rem;
+    margin: 1rem ;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.66);
+  }
+  .add-btn:hover{
+    background-color: white;
+  }
 
-#add-student {
-  background-image: url("images/banner2.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: "Comic Sans MS";
-}
 
-.header1 {
-  font-size: xxx-large;
-  border: 2px;
-  padding: 6px;
-  background-color: rgba(255, 255, 255);
-  border-radius: 2rem;
-}
-
-.big-container {
-
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem;
-
-}
-
-.field-container {
-  padding: 3rem 3rem 4rem 4rem;
-  background-color: rgba(117, 181, 255, 0.8);
-  border-radius: 3rem;
-  transition-duration: 0.5s;
-}
-
-.field-container:hover {
-  transition-duration: 0.5s;
-  background-color: rgb(117, 181, 255);
-}
-
-input {
-  padding: 0.5rem;
-  margin: 1rem 1rem;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.66);
-}
-input:hover{
-  background-color: white;
-}
-
-select {
-  padding: 0.5rem;
-  margin: 1rem 1rem;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.66);
-}
-select:hover{
-  background-color: white;
-}
-
-.btn-add {
-  text-align: center;
-  padding-top: 1rem;
-}
-
-.add-btn {
-  padding: 0.5rem;
-  margin: 1rem ;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.66);
-}
-.add-btn:hover{
-  background-color: white;
-}
