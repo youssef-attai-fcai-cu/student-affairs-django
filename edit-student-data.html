@@ -4,64 +4,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Edit Student</title>
   </head>
-  <body>
+  <body id="edit-student-body">
     <nav>
       <ul>
         <li>
-          <a href="index.html">
-            Home
-          </a>
+          <a href="index.html"> Home </a>
         </li>
         <li>
-          <a href="view-students.html">
-            View students
-              </a>
-            </li>
-            <li>
-              <a href="edit-student-data.html">
-                Edit a student
-              </a>
-            </li>
-            <li>
-              <a href="add-student.html">
-                Add a new student
-              </a>
-            </li>
-            <li>
-              <a href="search-student.html">
-                Search for a student
-              </a>
-            </li>
-            <li>
-              <a href="student-department-assignment.html">
-                Student department assignment
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div style="text-align: center">
-          <h1>Edit Student info</h1>
-        </div>
-        <div>
-          <form action="">
-
-
+          <a href="view-students.html"> View students </a>
+        </li>
+        <li>
+          <a href="edit-student-data.html"> Edit a student </a>
+        </li>
+        <li>
+          <a href="add-student.html"> Add a new student </a>
+        </li>
+        <li>
+          <a href="search-student.html"> Search for a student </a>
+        </li>
+        <li>
+          <a href="student-department-assignment.html">
+            Student department assignment
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div style="text-align: center">
+      <h1>Edit Student info</h1>
+    </div>
+    <div>
+      <form action="">
         <label for="name"><b>Student Name:</b></label>
-        <br>
+        <br />
         <input type="text" name="name" />
         <br />
         <br />
-        
+
         <label for="date"><b>Date of Birth:</b></label>
-        <br>
+        <br />
         <input type="date" name="date" />
         <br />
         <br />
         <label for="gpa"><b>Student GPA:</b></label>
-        <br>
+        <br />
         <input type="text" name="gpa" />
         <br />
         <br />
@@ -70,7 +58,7 @@
         </label>
         <input type="radio" name="1" /> Male
         <input type="radio" name="1" /> Female
-        
+
         <br />
         <br />
         <label for="level"
@@ -88,24 +76,23 @@
         <br />
         <br />
         <label for="department"><b>Student's Department:</b></label>
-        <br>
-        <input type="text" name ="department" disabled />
+        <br />
+        <input type="text" name="department" disabled />
         <br />
         <br />
         <label for="email"><b>Student E-mail:</b></label>
-        <br>
+        <br />
         <input type="email" name="email" id="" />
         <br />
         <br />
         <label for="phone"><b>Phone Number:</b></label>
-        <br>
+        <br />
         <input type="number" name="phone" />
         <br />
         <br />
-        <button style = "margin:5px" type="submit">Delete Student</button>
-        
+        <button style="margin: 5px" type="submit">Delete Student</button>
+
         <button type="submit">Edit Student</button>
-        
       </form>
     </div>
   </body>
