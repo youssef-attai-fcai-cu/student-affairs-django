@@ -93,42 +93,6 @@ li a:hover {
 
 
 
-
-/* ------------------HomePage---------------- */
-
-.home-page {
-  /* background-color: #24252A;
-  background-position: center;
-  background-size: cover;
-  width: 500px;
-  margin: 600px;
-  padding: 500px 500px;  */
-
-  min-height: 100vh;
-  width: 100%;
-  background-color: #24252A;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
-
-.text_ {
-  text-align: center;
-  font-size: 25px;
-  width: 100%;
-  color: #edf0f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-
-
-
-
 /* Hover For Visit Our Home page */
 .hero-btn {
   display: inline-block;
@@ -291,69 +255,77 @@ nav .fa {
   top: -70%;
 }
 
-/* ------------------------------edit-student-body------------------------------------ */
+/* 
 
-#edit-student-body {
-  background-image: url(images/team2.jpeg );
-  background-repeat: no-repeat;
+#add-student {
+  background-image: url("images/banner2.jpg");
   background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Comic Sans MS";
 }
 
-/* label {
-  width: 10px;
-  margin: 4px;
+.header1 {
+  font-size: xxx-large;
+  border: 2px;
+  padding: 6px;
+  background-color: rgba(255, 255, 255);
+  border-radius: 2rem;
 }
 
-.form {
-  border-radius: 10px;
-  color: white;
-  width: 500px;
-  padding: 5px;
-  margin: auto;
+.big-container {
 
 
-}
-
-input[type="text"] {
-  width: 450px;
-  padding: 2px;
-  font-size: 17px;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
 
 }
 
-input[name="gpa"] {
-  width: 45px;
-  padding: 2px;
-  font-size: 17px;
-  border-radius: 10px;
-
+.field-container {
+  padding: 3rem 3rem 4rem 4rem;
+  background-color: rgba(117, 181, 255, 0.8);
+  border-radius: 3rem;
+  transition-duration: 0.5s;
 }
 
-
-
-input[type="email"] {
-  width: 450px;
-  padding: 2px;
-  font-size: 17px;
-  border-radius: 10px;
-
+.field-container:hover {
+  transition-duration: 0.5s;
+  background-color: rgb(117, 181, 255);
 }
 
+input {
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.66);
+}
+input:hover{
+  background-color: white;
+}
 
-h1 {
+select {
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.66);
+}
+select:hover{
+  background-color: white;
+}
+
+.btn-add {
   text-align: center;
+  padding-top: 1rem;
 }
 
-#delete-student {
-  width: 250px;
-  margin-top: 1px;
+.add-btn {
+  padding: 0.5rem;
+  margin: 1rem ;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.66);
 }
-
-#edit-student {
-  width: 250px;
-  margin-left: 250px;
-  margin-bottom: 5px;
-
-} */
+.add-btn:hover{
+  background-color: white;
+}

@@ -43,11 +43,19 @@ input {
     background-color: rgba(255, 255, 255, 0.66);
 }
 
+input:hover {
+    background-color: white;
+}
+
 select {
     padding: 0.5rem;
     margin: 1rem 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
+}
+
+select:hover {
+    background-color: white;
 }
 
 .btn-add {
@@ -57,7 +65,11 @@ select {
 
 .add-btn {
     padding: 0.5rem;
-    margin: 1rem 1rem;
+    margin: 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
+}
+
+.add-btn:hover {
+    background-color: white;
 }
