@@ -254,3 +254,70 @@ nav .fa {
   visibility: visible;
   top: -70%;
 }
+
+/* ------------------------------edit-student-body------------------------------------ */
+
+#edit-student-body {
+  background-image: url(images/team2.jpeg );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* label {
+  width: 10px;
+  margin: 4px;
+}
+
+.form {
+  border-radius: 10px;
+  color: white;
+  width: 500px;
+  padding: 5px;
+  margin: auto;
+
+
+}
+
+input[type="text"] {
+  width: 450px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+input[name="gpa"] {
+  width: 45px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+
+
+input[type="email"] {
+  width: 450px;
+  padding: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+
+}
+
+
+h1 {
+  text-align: center;
+}
+
+#delete-student {
+  width: 250px;
+  margin-top: 1px;
+}
+
+#edit-student {
+  width: 250px;
+  margin-left: 250px;
+  margin-bottom: 5px;
+
+} */
