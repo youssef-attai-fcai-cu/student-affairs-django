@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/add-student.css" />
     <title>Add Student</title>
   </head>
-  <body>
+  <body id="add-student">
     <!-- <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
@@ -41,75 +42,82 @@
         </li>
       </ul>
     </nav>
-   <div class="bigcontainer">
-    <div>
-      <h1>Add Student</h1>
-    </div>
-    
-    <div class="field-container">
-      <span class="student">
-        <label for="name"><b>Student Name</b></label>
-        <input type="text" name="name" required />
-      </span>
+    <div class="big-container">
+      <div>
+        <h1 class="header1">Add Student</h1>
+      </div>
 
-      <span class="date">
-        <label for="date"><b>Date of Birth</b></label>
-        <input type="date" name="date" required />
-      </span>
-
-      <span class="gpa">
-        <label for="gpa"><b>Student GPA</b></label>
-        <input type="text" name="gpa" required />
-      </span>
-
-      <span class="gender">
-        <label for="gender"><b>Student's Gender <br /></b>
-        </label>
-        <div class="gender-pick">
-        <input class="precedeGender" type="radio" name="1" /> <p>Male</p>
-        <input type="radio" name="1" /> <p>Female</p> </div>
-      </span>
-
-      <span class="level">
-        <label for="level"><b>Student's Level <br /></b></label>
-        <div class="level-pick">
-        <input class="precedeLevel" type="radio" name="2" />
-          <p id="lvl1">Level 1</p>
-          <input type="radio" name="2" />
-          <p id="lvl2">Level 2</p>
-          <input type="radio" name="2" />
-          <p id="lvl3">Level 3</p>
-          <input type="radio" name="2" />
-          <p id="lvl4">Level 4</p>
+      <div class="field-container">
+        <div class="student">
+          <label><b>Student Name</b></label>
+          <input type="text" name="name" required />
         </div>
-      </span>
 
-      <span class="status">
-        <label for="status"><b>Current status</b> <br /></label>
-        <div class="status-pick">
-          <input class="precedeStatus" type="radio" name="3" /> <p>Active</p>
-          <input type="radio" name="3" /> <p>Inactive</p> </div>
-      </span>
-      
-      <span class="department">
-        <label for="department"><b>Student's Department</b></label>
-          <input type="text" name="department" />
-      </span>
+        <div class="date">
+          <label> <b>Date of Birth</b></label>
+          <input type="date" name="date" required />
+        </div>
 
-      <span class="email">
-        <label for="email"><b>Student E-mail</b></label>
-          <input type="email" name="email" id=""/>
-      </span>
+        <div class="gpa">
+          <label><b>Student GPA</b></label>
+          <input type="text" name="gpa" required />
+        </div>
 
-      <span class="phone">
-        <label for="phone"><b>Phone Number</b></label>
-          <input type="number" name="phone" />
-      </span>
+        <div class="gender">
+          <label
+            ><b>Student's Gender <br /></b>
+          </label>
+          <div class="gender-pick">
+            <select name="gender" id="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
 
-      <div class="btn">
-        <button type="submit">Add Student</button>
+          <div class="level">
+            <label
+              ><b>Student's Level <br /></b
+            ></label>
+            <div class="level-pick">
+              <select name="level" id="level">
+                <option value="lvl1">Level 1</option>
+                <option value="lvl2">Level 2</option>
+                <option value="lvl3">Level 3</option>
+                <option value="lvl4">Level 4</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="status">
+            <label><b>Current status</b> <br /></label>
+            <div class="status-pick">
+              <select name="status" id="status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <div class="department">
+              <label><b>Student's Department</b></label>
+              <input type="text" name="department" />
+            </div>
+
+            <div class="email">
+              <label><b>Student E-mail</b></label>
+              <input type="email" name="email" id="" />
+            </div>
+
+            <div class="phone">
+              <label><b>Phone Number</b></label>
+              <input type="number" name="phone" />
+            </div>
+
+            <div class="btn-add">
+              <button class="add-btn" type="submit">Add Student</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    
   </body>
 </html>
