@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +41,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-nav a {
+/* nav a {
   text-decoration: none;
   color: white;
   text-shadow: 2px 2px 4px #000000;
@@ -50,14 +51,45 @@ nav>ul>li {
   list-style: none;
   padding: 20px;
   text-align: center;
-}
+} */
 
+
+/* -----------NEW Navigation Bar -------------- */
 nav>ul {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #24252A;
+}
+
+
+
+li {
+  float: left;
+}
+
+li a {
+  font-family: 'Montserrat', sans-serif;
+  display: block;
+  color: #edf0f1;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+}
+
+li a:hover {
+  color: #0088a9
+}
 
 
 
