@@ -13,6 +13,11 @@
     margin-top: 40px;
 }
 
+#welcome::selection {
+    color:#ffffff;
+    
+}
+
 .search-box {
     position: absolute;
     top: 30%;

@@ -9,7 +9,7 @@
 .header1 {
     font-size: xxx-large;
     border: 2px;
-    padding: 6px;
+    padding: 12px;
     background-color: rgba(255, 255, 255,0.4);
     border-radius: 2rem;
 }
@@ -26,14 +26,16 @@
 
 .field-container {
     padding: 3rem 3rem 4rem 4rem;
-    background-color: rgba(117, 181, 255, 0.8);
+    background-color: rgba(218, 95, 64, 0.9);
+    /* background: linear-gradient(to right, #9c27b0, #8ecdff); */
+
     border-radius: 3rem;
     transition-duration: 0.5s;
 }
 
 .field-container:hover {
     transition-duration: 0.5s;
-    background-color: rgb(117, 181, 255);
+    background-color: #da5f40;
 }
 
 input {

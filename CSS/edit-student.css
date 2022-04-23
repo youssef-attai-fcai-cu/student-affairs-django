@@ -24,15 +24,16 @@
 }
 
 .field-container {
-    padding: 3rem 3rem 4rem 4rem;
-    background-color: rgba(112, 28, 160, 0.8);
+    padding: 3rem 3rem 4rem 4rem;    
+    background-color: rgba(218, 95, 64, 0.9);
     border-radius: 3rem;
     transition-duration: 0.5s;
 }
 
 .field-container:hover {
     transition-duration: 0.5s;
-    background-color: rgba(112, 28, 160);
+    background-color: #da5f40;
+    
 }
 
 input {
