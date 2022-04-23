@@ -3,7 +3,10 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
 
+*::selection {
+  background-color: #da5f40;
 }
 
 .header {
@@ -88,7 +91,7 @@ nav>ul>li a {
 }
 
 nav>ul>li a:hover {
-  color: #0088a9
+  color: #da5f40
 }
 
 

@@ -9,9 +9,11 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to right, #9c27b0, #8ecdff);
-    /* background: linear-gradient(to right, #9a0000, #070452); */
-    /* background: linear-gradient(to right, #ff0000, #000000);  */
+    /* background: linear-gradient(to right, #9c27b0, #8ecdff); */
+    background: linear-gradient(to right, #da5f40, #e2a99a);
+    /* background: linear-gradient(to right, #9a5200, #070452);  */
+    /* background: linear-gradient(to right, #9c7300, #070452); */
+    /* background: linear-gradient(to right, #ff0000, #000000); */
     /* background: linear-gradient(to right, #79005d, #8ecdff); */
 }
 
@@ -114,14 +116,14 @@
 }
 
 
-.mobile{
+/* .mobile{
     width: 200px;
     position:absolute;
     top: 50%;
     left: 35%;
     transform: translateY(-50%);
     z-index: 1;
-}
+} */
 
 .controls {
     position: absolute;
