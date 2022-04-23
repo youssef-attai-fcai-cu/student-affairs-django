@@ -15,26 +15,28 @@
         <div id="circle">
           <div class="feature" id="one">
             <img src="images/camera.png" />
-            <div>
-              <h1><a href="" style="color: white;">Human Resources</a></h1>
+            <div class="Human-resourses">
+              <h1><a href="#">Human Resources</a></h1>
             </div>
           </div>
           <div class="feature" id="two">
             <img src="images/processor.png" />
-            <div>
-              <h1><a href="index.html" style="color: white;">Students Affairs</a></h1>
+            <div class="Students-hover">
+              <h1>
+                <a href="index.html">Students Affairs</a>
+              </h1>
             </div>
           </div>
           <div class="feature" id="three">
             <img src="images/display.png" />
-            <div>
-              <h1> <a href="" style="color: white;">Higher Studies</a></h1>
+            <div class="Higher-studies">
+              <h1><a href="#">Higher Studies</a></h1>
             </div>
           </div>
           <div class="feature" id="four">
             <img src="images/battery.png" />
-            <div>
-              <h1> <a href="" style="color: white;">Laboratory Tracking</a></h1>
+            <div class="Laboratory-tracking">
+              <h1><a href="#">Laboratory Tracking</a></h1>
             </div>
           </div>
         </div>
@@ -42,67 +44,11 @@
 
       <div class="controls">
         <img src="images/arrow.png" id="upBtn" />
-        <h3>Features</h3>
+        <h3>Projects</h3>
         <img src="images/arrow.png" id="downBtn" />
       </div>
     </div>
-    <!-- <nav>
-        <div class="logo">
-          <img src="images/logo.png" />
-        </div>
-        <div class="nav-links">
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">phone</a>
-            </li>
-            <li>
-              <a href="#">Acsessries</a>
-            </li>
-            <li>
-              <a href="#">Cart</a>
-            </li>
-          </ul>
-        </div>
-      </nav> -->
 
-    <!-- <div class="information">
-        <div id="circle">
-          <div class="feature one">
-            <img src="images/camera.png" />
-          </div>
-          <div class="feature two">
-            <img src="images/processor.png" />
-          </div>
-          <div class="feature three">
-            <img src="images/display.png" />
-          </div>
-          <div class="feature four">
-            <img src="images/battery.png" />
-          </div>
-        </div>
-      </div> -->
-
-    <script>
-      var circle = document.getElementById("circle");
-      var upBtn = document.getElementById("upBtn");
-      var downBtn = document.getElementById("downBtn");
-
-      var rotateValue = circle.style.transform;
-      var rotateSum;
-
-      upBtn.onclick = function () {
-        rotateSum = rotateValue + "rotate(-90deg)";
-        circle.style.transform = rotateSum;
-        rotateValue = rotateSum;
-      };
-      downBtn.onclick = function () {
-        rotateSum = rotateValue + "rotate(90deg)";
-        circle.style.transform = rotateSum;
-        rotateValue = rotateSum;
-      };
-    </script>
+    <script src="java script/Home-page.js"></script>
   </body>
 </html>
