@@ -8,24 +8,25 @@ document.getElementById("row2").style.display = "none";
 document.getElementById("row3").style.display = "none";
 document.getElementById("row4").style.display = "none";
 
+
 function show() {
   var nameinput = document.querySelector("#name-entered").value;
-  switch (nameinput) {
-    case names[0]:
+  switch (nameinput.toLowerCase()) {
+    case names[0].toLowerCase():
       document.getElementById("row1").style.display = "table-row";
       document.getElementById("row2").style.display = "table-row";
       document.getElementById("row3").style.display = "none";
       document.getElementById("row4").style.display = "none";
       document.getElementById("no-student").style.display = "none";
       break;
-    case names[1]:
+    case names[1].toLowerCase():
       document.getElementById("row1").style.display = "table-row";
       document.getElementById("row3").style.display = "table-row";
       document.getElementById("row2").style.display = "none";
       document.getElementById("row4").style.display = "none";
       document.getElementById("no-student").style.display = "none";
       break;
-    case names[2]:
+    case names[2].toLowerCase():
       document.getElementById("row1").style.display = "table-row";
       document.getElementById("row4").style.display = "table-row";
       document.getElementById("row2").style.display = "none";
