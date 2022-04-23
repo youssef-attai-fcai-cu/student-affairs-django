@@ -103,14 +103,6 @@
     color: #e84118;
 }
 
-#no-student {
-    color: red;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    position: relative;
-    top: 150px;
-}
 
 .search-box .show-names {
     visibility: hidden;

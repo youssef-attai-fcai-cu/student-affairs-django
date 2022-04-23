@@ -7,7 +7,14 @@ document.getElementById("row1").style.display = "none";
 document.getElementById("row2").style.display = "none";
 document.getElementById("row3").style.display = "none";
 document.getElementById("row4").style.display = "none";
-
+function alert_empty()
+{
+  alert("Please enter a name")
+}
+function alert_no_s()
+{
+  alert("the student you searched about does not exist")
+}
 
 function show() {
   var nameinput = document.querySelector("#name-entered").value;
@@ -17,39 +24,31 @@ function show() {
       document.getElementById("row2").style.display = "table-row";
       document.getElementById("row3").style.display = "none";
       document.getElementById("row4").style.display = "none";
-      document.getElementById("no-student").style.display = "none";
       break;
     case names[1].toLowerCase():
       document.getElementById("row1").style.display = "table-row";
       document.getElementById("row3").style.display = "table-row";
       document.getElementById("row2").style.display = "none";
       document.getElementById("row4").style.display = "none";
-      document.getElementById("no-student").style.display = "none";
       break;
     case names[2].toLowerCase():
       document.getElementById("row1").style.display = "table-row";
       document.getElementById("row4").style.display = "table-row";
       document.getElementById("row2").style.display = "none";
       document.getElementById("row3").style.display = "none";
-      document.getElementById("no-student").style.display = "none";
       break;
     case "":
       document.getElementById("row1").style.display = "none";
       document.getElementById("row2").style.display = "none";
       document.getElementById("row3").style.display = "none";
       document.getElementById("row4").style.display = "none";
-      document.getElementById("no-student").style.display = "block";
-      document.getElementById("no-student").style.textAlign = "center";
-      document.getElementById("no-student").innerHTML = "please enter a name";
+      alert_empty()
       break;
     default:
       document.getElementById("row1").style.display = "none";
       document.getElementById("row2").style.display = "none";
       document.getElementById("row3").style.display = "none";
       document.getElementById("row4").style.display = "none";
-      document.getElementById("no-student").style.display = "block";
-      document.getElementById("no-student").style.textAlign = "center";
-      document.getElementById("no-student").innerHTML =
-        "the student you searched about does not exist";
+      alert_no_s()
   }
 }
