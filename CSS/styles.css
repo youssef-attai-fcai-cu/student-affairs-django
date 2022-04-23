@@ -61,7 +61,7 @@ nav>ul {
   align-items: flex-start;
 }
 
-ul {
+nav>ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -71,11 +71,11 @@ ul {
 
 
 
-li {
+nav>ul>li {
   float: left;
 }
 
-li a {
+nav>ul>li a {
   font-family: 'Montserrat', sans-serif;
   display: block;
   color: #edf0f1;
@@ -87,7 +87,7 @@ li a {
   transition: all 0.3s ease 0s;
 }
 
-li a:hover {
+nav>ul>li a:hover {
   color: #0088a9
 }
 
