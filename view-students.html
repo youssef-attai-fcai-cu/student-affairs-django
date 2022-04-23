@@ -7,80 +7,151 @@
     <link rel="stylesheet" href="CSS/styles.css" />
     <link rel="icon" type="image/x-icon" href="/images/Logo-FCAI.jpg" />
     <link rel="stylesheet" href="CSS/view students.css" />
-    <title>Document</title>
+    <script src="java script/data-base.js"></script>
+    <title>view-students</title>
   </head>
   <body>
     <nav>
-        <ul>
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="view-students.html">
-                    View students
-                </a>
-            </li>
-            <li>
-                <a href="edit-student-data.html">
-                    Edit a student
-                </a>
-            </li>
-            <li>
-                <a href="add-student.html">
-                    Add a new student
-                </a>
-            </li>
-            <li>
-                <a href="search-student.html">
-                    Search for a student
-                </a>
-            </li>
-            <li>
-                <a href="student-department-assignment.html">
-                    Student department assignment
-                </a>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <a href="index.html"> Home </a>
+        </li>
+        <li>
+          <a href="view-students.html"> View students </a>
+        </li>
+        <li>
+          <a href="edit-student-data.html"> Edit a student </a>
+        </li>
+        <li>
+          <a href="add-student.html"> Add a new student </a>
+        </li>
+        <li>
+          <a href="search-student.html"> Search for a student </a>
+        </li>
+        <li>
+          <a href="student-department-assignment.html">
+            Student department assignment
+          </a>
+        </li>
+      </ul>
     </nav>
-            
-            <div id="filter" class="dropdown-check-list" tabindex="100">
-                <span class="anchor">Hide/Show columns</span>
-                <ul class="items">
-                  <li><input type="checkbox" name="col1" value="ID" onclick="showhide(this,this.name)" checked />ID </li>
-                  <li><input type="checkbox" name="col2" value="Student name"  onclick="showhide(this,this.name)" checked />Student Name</li>
-                  <li><input type="checkbox" name="col3" value="Date of birth" onclick="showhide(this,this.name)" checked/>Date of birth </li>
-                  <li><input type="checkbox" name="col4" value="gpa" onclick="showhide(this,this.name)" checked/>gpa </li>
-                  <li><input type="checkbox" name="col5" value="gender" onclick="showhide(this,this.name)" checked/>gender </li>
-                  <li><input type="checkbox" name="col6" value="level"  onclick="showhide(this,this.name)" checked/>level </li>
-                  <li><input type="checkbox" name="col7" value="Department" onclick="showhide(this,this.name)" checked/>Department</li>
-                  <li><input type="checkbox" name="col8" value="Email"  onclick="showhide(this,this.name)"checked/>Email</li>
-                  <li><input type="checkbox" name="col9" value="mobile number" onclick="showhide(this,this.name)" checked/>Mobile number</li>
-                  <li><input type="checkbox" name="col10" value="status" onclick="showhide(this,this.name)" checked/>Status</li>
-                </ul>
-              </div>
-            
+
+    <div id="filter" class="dropdown-check-list" tabindex="100">
+      <span class="anchor">Hide/Show columns</span>
+      <ul class="items">
+        <li>
+          <input
+            type="checkbox"
+            name="col1"
+            value="ID"
+            onclick="showhide(this,this.name)"
+            checked
+          />ID
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col2"
+            value="Student name"
+            onclick="showhide(this,this.name)"
+            checked
+          />Student Name
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col3"
+            value="Date of birth"
+            onclick="showhide(this,this.name)"
+            checked
+          />Date of birth
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col4"
+            value="gpa"
+            onclick="showhide(this,this.name)"
+            checked
+          />gpa
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col5"
+            value="gender"
+            onclick="showhide(this,this.name)"
+            checked
+          />gender
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col6"
+            value="level"
+            onclick="showhide(this,this.name)"
+            checked
+          />level
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col7"
+            value="Department"
+            onclick="showhide(this,this.name)"
+            checked
+          />Department
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col8"
+            value="Email"
+            onclick="showhide(this,this.name)"
+            checked
+          />Email
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col9"
+            value="mobile number"
+            onclick="showhide(this,this.name)"
+            checked
+          />Mobile number
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            name="col10"
+            value="status"
+            onclick="showhide(this,this.name)"
+            checked
+          />Status
+        </li>
+      </ul>
+    </div>
+
     <table>
-        <caption>view students</caption>
-        <thead>
-            <tr>
-                <th class="col1" >ID</th>
-                <th class="col2">Student name</th>
-                <th class="col3">date of birth</th>
-                <th class="col4">gpa</th>
-                <th class="col5">gender</th>
-                <th class="col6">level</th>
-                <th class="col7">Department</th>
-                <th class="col8">Email</th>
-                <th class="col9">Mobile number</th>
-                <th class="col10">active status</th>
-            </tr>
-        </thead>
-        <tbody id="content"></tbody>
-        
+      <caption>
+        view students
+      </caption>
+      <thead>
+        <tr>
+          <th class="col1">ID</th>
+          <th class="col2">Student name</th>
+          <th class="col3">date of birth</th>
+          <th class="col4">gpa</th>
+          <th class="col5">gender</th>
+          <th class="col6">level</th>
+          <th class="col7">Department</th>
+          <th class="col8">Email</th>
+          <th class="col9">Mobile number</th>
+          <th class="col10">active status</th>
+        </tr>
+      </thead>
+      <tbody id="content"></tbody>
     </table>
     <script src="java script/view-students.js"></script>
-</body>
-
+  </body>
 </html>
