@@ -60,7 +60,15 @@
 
         <div class="gpa">
           <label><b>Student GPA</b></label>
-          <input type="text" name="gpa" placeholder="0 - 4" required />
+          <input
+            type="number"
+            min="0"
+            max="4"
+            step="0.1"
+            name="gpa"
+            placeholder="0 - 4"
+            required
+          />
         </div>
 
         <div class="gender">
@@ -137,5 +145,6 @@
         </div>
       </div>
     </div>
+    <script src="../java script/add-student.js"></script>
   </body>
 </html>
