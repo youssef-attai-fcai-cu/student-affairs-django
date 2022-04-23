@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/Assign-Department.css" />
+    <link rel="stylesheet" href="CSS/Drop-Down.css" />
     <link rel="icon" type="image/x-icon" href="/images/Logo-FCAI.jpg" />
     <title>Assign Department</title>
   </head>
-  <body>
+  <body id="assign-dept-body">
     <nav>
       <ul>
         <li>
@@ -33,29 +35,64 @@
         </li>
       </ul>
     </nav>
+    <div class="big-container">
+      <div>
+        <h1 class="h1">Assign Department</h1>
+      </div>
 
-    <form>
-      <div class="dept_id">
-        <b>Student ID:</b>
-        <input type="text" placeholder="ID" required="true" />
+      <div class="field-container">
+        <div class="ID">
+          <label><b>Student ID</b></label>
+          <input type="text" name="id" placeholder="Enter ID" required/>
+        </div>
+
+        <div class="Name">
+          <label><b>Student Name</b></label>
+          <input type="text" name="name" placeholder="Enter a name" required/>
+        </div>
+
+            <div class="select-box" style="margin-top:1rem">
+              <label style="margin-top:1rem"><b>Choose Department</b></label>
+              <div class="select-box-container">
+                <div class="options-container">
+                  <div class="option">
+                    <input type="radio" class="radio" id="CS" name="dept_choice" />
+                    <label>Computer Science</label>
+                  </div>
+    
+                  <div class="option">
+                    <input type="radio" class="radio" id="AI" name="dept_choice" />
+                    <label>Artificial Intelligence</label>
+                  </div>
+    
+                  <div class="option">
+                    <input type="radio" class="radio" id="IT" name="dept_choice" />
+                    <label>Information Technology</label>
+                  </div>
+    
+                  <div class="option">
+                    <input type="radio" class="radio" id="IS" name="dept_choice" />
+                    <label>Information Systems</label>
+                  </div>
+    
+                  <div class="option">
+                    <input type="radio" class="radio" id="DS" name="dept_choice" />
+                    <label>Decision Support</label>
+                  </div>
+                </div>
+    
+                <div class="selected">Choose Department</div>
+              </div>
+            </div>
+
+
+        <div class="btn-add">
+          <button class="add-btn" type="submit">Assign Department</button>
+        </div>
       </div>
-      <div class="dept_name">
-        <b>Student Name:</b>
-        <input type="text" placeholder="Name" required="true" />
-      </div>
-      <div class="dept_choice">
-        <b>Choose the Department:</b>
-        <select name="dropdown" required="true">
-          <option></option>
-          <option id="CS">Computer Science</option>
-          <option id="AI">Artificial Intelligence</option>
-          <option id="IT">Information Technology</option>
-          <option id="IS">Information Systems</option>
-          <option id="DS">Decision Support</option>
-        </select>
-      </div>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+    </div>
+
+    <script src="java script/Drop-Down.js"></script>
+
   </body>
 </html>
