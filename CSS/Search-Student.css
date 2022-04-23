@@ -111,23 +111,23 @@
 
 .search-box .show-names {
     visibility: hidden;
-    /*width: 120px;*/
     cursor: pointer;
     background-color: rgb(250, 149, 66);
     color: #fff;
     text-align: center;
     border-radius: 15px;
-    padding: 8px 5px;
-    transform: translateX(10%);
+    padding: 2px 5px;
+    padding-bottom: 3px;
+    transform: translateX(-10%);
     position: absolute;
     z-index: 1;
-    top: -20px;
-    left: 15px;
+    top: -25px;
+    left: 40px;
 }
 
 
 
 .search-box:hover .show-names {
     visibility: visible;
-    top: -70%;
+    top: -75%;
 }
