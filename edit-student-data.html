@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="CSS/edit-student.css" />
+
     <title>Edit Student</title>
   </head>
   <body id="edit-student-body">
@@ -33,91 +34,98 @@
         </li>
       </ul>
     </nav>
-    <div style="text-align: center">
-      <h1>Edit Student info</h1>
-    </div>
-    <div>
-      <form action="">
-        <label for="name"><b>Student Name:</b></label>
-        <br />
-        <input type="text" name="name" />
-        <br />
-        <br />
+    <div class="big-container">
+      <div>
+        <h1 class="header1">Edit Student</h1>
+      </div>
 
-        <label for="date"><b>Date of Birth:</b></label>
-        <br />
-        <input type="date" name="date" />
-        <br />
-        <br />
-        <label for="gpa"><b>Student GPA:</b></label>
-        <br />
-        <input type="text" name="gpa" />
-        <br />
-        <br />
-        <label for="gender"
-          ><b>Student's Gender <br /></b>
-        </label>
-        <input type="radio" name="1" /> Male
-        <input type="radio" name="1" /> Female
+      <div class="field-container">
+        <div class="student">
+          <label><b>Student Name</b></label>
+          <input type="text" name="name" placeholder="Enter a name" required />
+        </div>
 
-        <br />
-        <br />
-        <label for="level"
-          ><b>Student's Level <br /></b
-        ></label>
-        <input type="radio" name="2" /> Level 1
-        <input type="radio" name="2" /> Level 2
-        <input type="radio" name="2" /> Level 3
-        <input type="radio" name="2" /> Level 4
-        <br />
-        <br />
-        <label for="status"><b>Current status</b> <br /></label>
-        <input type="radio" name="3" /> Active
-        <input type="radio" name="3" /> Inactive
-        <br />
-        <br />
-        <label for="department"><b>Student's Department:</b></label>
-        <br />
+        <div class="date">
+          <label> <b>Date of Birth</b></label>
+          <input type="date" name="date" required />
+        </div>
 
-        <!-- ---------------same for me here also----------------- -->
+        <div class="gpa">
+          <label><b>Student GPA</b></label>
+          <input type="text" name="gpa" placeholder="0 - 4" required />
+        </div>
 
-        <!-- <div class="dept_choice">
-          <b>Choose the Department:</b>
-          <select name="dropdown" required="true">
-            <option></option>
-            <option id="CS">Computer Science</option>
-            <option id="AI">Artificial Intelligence</option>
-            <option id="IT">Information Technology</option>
-            <option id="IS">Information Systems</option>
-            <option id="DS">Decision Support</option>
+        <div class="gender">
+          <label
+            ><b>Student's Gender <br /></b>
+          </label>
+          <div class="gender-pick">
+            <select name="gender" id="gender">
+              <option value="Empty"></option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="level">
+          <label
+            ><b>Student's Level <br /></b
+          ></label>
+          <div class="level-pick">
+            <select name="level" id="level">
+              <option value="Empty"></option>
+              <option value="lvl1">Level 1</option>
+              <option value="lvl2">Level 2</option>
+              <option value="lvl3">Level 3</option>
+              <option value="lvl4">Level 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="status">
+          <label><b>Current status</b> <br /></label>
+          <div class="status-pick">
+            <select name="status" id="status">
+              <option value="Empty"></option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="department">
+          <label><b>Student's Department</b></label>
+          <select class="department" name="department" id="department" disabled>
+            <option value="Empty"></option>
+            <option value="CS">Computer Science</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="IT">Information Technology</option>
+            <option value="IS">Information Systems</option>
+            <option value="DS">Decision Support</option>
           </select>
-        </div> -->
+        </div>
 
-        <input type="text" name="department" disabled />
-        <br />
-        <br />
-        <label for="email"><b>Student E-mail:</b></label>
-        <br />
-        <input type="email" name="email" id="" />
-        <br />
-        <br />
-        <label for="phone"><b>Phone Number:</b></label>
-        <br />
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="02-xxxxxxxx"
-          pattern="[0-9]{2}-[0-9]{8}"
-          required
-        /><br /><br />
-        <small style="color: aliceblue">Format: 02-xxxxxxxx</small>
-        <br />
-        <br />
-        <button style="margin: 5px" type="submit">Delete Student</button>
+        <div class="email">
+          <label><b>Student E-mail</b></label>
+          <input type="email" name="email" placeholder="name@example.com" />
+        </div>
 
-        <button type="submit">Edit Student</button>
-      </form>
+        <div class="phone">
+          <label><b>Phone Number</b></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="02-xxxxxxxx"
+            pattern="[0-9]{2}-[0-9]{8}"
+            required
+          />
+        </div>
+        <div class="btn-add">
+          <button class="add-btn" type="submit">Update Student</button>
+          <button class="add-btn" type="submit">Delete Student</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

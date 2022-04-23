@@ -50,7 +50,7 @@
       <div class="field-container">
         <div class="student">
           <label><b>Student Name</b></label>
-          <input type="text" name="name" required />
+          <input type="text" name="name" placeholder="Enter a name" required />
         </div>
 
         <div class="date">
@@ -60,7 +60,7 @@
 
         <div class="gpa">
           <label><b>Student GPA</b></label>
-          <input type="text" name="gpa" required />
+          <input type="text" name="gpa" placeholder="0 - 4" required />
         </div>
 
         <div class="gender">
@@ -69,76 +69,70 @@
           </label>
           <div class="gender-pick">
             <select name="gender" id="gender">
+              <option value="Empty"></option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
+        </div>
 
-          <div class="level">
-            <label
-              ><b>Student's Level <br /></b
-            ></label>
-            <div class="level-pick">
-              <select name="level" id="level">
-                <option value="lvl1">Level 1</option>
-                <option value="lvl2">Level 2</option>
-                <option value="lvl3">Level 3</option>
-                <option value="lvl4">Level 4</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="status">
-            <label><b>Current status</b> <br /></label>
-            <div class="status-pick">
-              <select name="status" id="status">
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-
-            <div class="department">
-              <label><b>Student's Department</b></label>
-              <input type="text" name="department" />
-            </div>
-
-            <!-- --------------the required field should be like dis------------- @Amr Khaled -->
-
-            <!-- <div class="dept_choice">
-            <b>Choose the Department:</b>
-            <select name="dropdown" required="true">
-                <option></option>
-                <option id="CS">Computer Science</option>
-                <option id="AI">Artificial Intelligence</option>
-                <option id="IT">Information Technology</option>
-                <option id="IS">Information Systems</option>
-                <option id="DS">Decision Support</option>
+        <div class="level">
+          <label
+            ><b>Student's Level <br /></b
+          ></label>
+          <div class="level-pick">
+            <select name="level" id="level">
+              <option value="Empty"></option>
+              <option value="lvl1">Level 1</option>
+              <option value="lvl2">Level 2</option>
+              <option value="lvl3">Level 3</option>
+              <option value="lvl4">Level 4</option>
             </select>
-        </div> -->
-
-            <div class="email">
-              <label><b>Student E-mail</b></label>
-              <input type="email" name="email" id="" />
-            </div>
-
-            <div class="phone">
-              <label><b>Phone Number</b></label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="02-xxxxxxxx"
-                pattern="[0-9]{2}-[0-9]{8}"
-                required
-              />
-              <br />
-              <small style="color: aliceblue">Format: 02-xxxxxxxx</small>
-            </div>
-
-            <div class="btn-add">
-              <button class="add-btn" type="submit">Add Student</button>
-            </div>
           </div>
+        </div>
+
+        <div class="status">
+          <label><b>Current status</b> <br /></label>
+          <div class="status-pick">
+            <select name="status" id="status">
+              <option value="Empty"></option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="department">
+          <label><b>Student's Department</b></label>
+          <select name="department" id="department">
+            <option value="Empty"></option>
+            <option value="CS">Computer Science</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="IT">Information Technology</option>
+            <option value="IS">Information Systems</option>
+            <option value="DS">Decision Support</option>
+          </select>
+        </div>
+
+        <div class="email">
+          <label><b>Student E-mail</b></label>
+          <input type="email" name="email" placeholder="name@example.com" />
+        </div>
+
+        <div class="phone">
+          <label><b>Phone Number</b></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="02-xxxxxxxx"
+            pattern="[0-9]{2}-[0-9]{8}"
+            required
+          />
+        </div>
+
+        <div class="btn-add">
+          <button class="add-btn" type="submit">Add Student</button>
         </div>
       </div>
     </div>

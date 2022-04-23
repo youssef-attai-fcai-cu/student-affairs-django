@@ -3,14 +3,14 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: "Comic Sans MS";
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .header1 {
     font-size: xxx-large;
     border: 2px;
     padding: 6px;
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255,0.4);
     border-radius: 2rem;
 }
 
@@ -38,7 +38,7 @@
 
 input {
     padding: 0.5rem;
-    margin: 1rem 1rem;
+    margin: 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
     transition-duration: 0.5s;
@@ -47,6 +47,15 @@ input {
 input:hover {
     transition-duration: 0.5s;
     background-color: white;
+}
+input[name="name"]{
+    width: 15rem;
+}
+input[name="gpa"]{
+    width: 2.5rem;
+}
+input[name="email"]{
+    width: 15rem;
 }
 
 select {
