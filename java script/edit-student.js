@@ -1,7 +1,7 @@
 // let generalBtn = document.querySelector(".btn-add");
-let addBtn = document.getElementById("add-btn");
-// let updateBtn = document.getElementById("update-btn");
-// let deleteBtn = document.getElementById("delete-btn");
+
+let updateBtn = document.getElementById("update-btn");
+let deleteBtn = document.getElementById("delete-btn");
 
 let inputFields = document.querySelectorAll(`input`);
 
@@ -13,9 +13,15 @@ let gpaInput = document.querySelector(`input[name="gpa"]`);
 
 let phoneInput = document.getElementById("phone");
 
-function successfulAdd() {
+function successfulUpdate() {
   if (validateFields()) {
-    alert("Student added successfully!");
+    alert("Student updated successfully!");
+  }
+}
+
+function successfulDelete() {
+  if (validateFields()) {
+    confirm("Are you sure you want to delete this student?");
   }
 }
 
@@ -80,7 +86,10 @@ function gpaNumbers(evt) {
 gpaInput.addEventListener("keydown", gpaNumbers);
 phoneInput.addEventListener("keydown", onlyNumberKey);
 // generalBtn.addEventListener("click", validateFields);
-addBtn.addEventListener("click", successfulAdd);
+
+updateBtn.addEventListener("click", successfulUpdate);
+
+deleteBtn.addEventListener("click", successfulDelete);
 
 let selectLevel = document.getElementById("level");
 let selectDepartment = document.getElementById("department");
