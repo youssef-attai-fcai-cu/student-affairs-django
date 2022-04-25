@@ -40,7 +40,7 @@ function showhide(obj, name) {
     }
   }
 }
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < dummyData.length; i++) {
   displayStudent(dummyData[i]);
 }
 

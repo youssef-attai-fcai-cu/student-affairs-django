@@ -63,10 +63,14 @@ for (var i = 0; i < dummyData.length; i++) {
 }
 
 
-for (var i = 0; i < dummyData.length + 1; i++) {
-  document.getElementById(`row${i + 1}`).style.display = "none";
+function hide()
+{
+  for (var i = 0; i < dummyData.length + 1; i++) {
+    document.getElementById(`row${i + 1}`).style.display = "none";
+  }
 }
 
+hide()
 
 function alert_empty() {
   alert("Please enter a name")
@@ -76,9 +80,7 @@ function alert_no_s() {
 }
 
 function show() {
-  for (var i = 0; i < dummyData.length + 1; i++) {
-    document.getElementById(`row${i + 1}`).style.display = "none";
-  }
+  hide()
 
   var nameinput = document.querySelector("#name-entered").value;
   var found = true
