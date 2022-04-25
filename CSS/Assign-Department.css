@@ -22,7 +22,7 @@
 }
 
 .field-container {
-    padding: 3rem 3rem 2rem 4rem;    
+    padding: 3rem 3rem 10px 4rem;    
     background-color: rgba(218, 95, 64, 0.9);
     border-radius: 3rem;
     transition-duration: 0.5s;
@@ -34,12 +34,16 @@
     
 }
 
-input {
+/*input {
     padding: 0.5rem;
     margin: 1rem 1rem;
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.66);
     transition-duration: 0.5s;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
 }
 input[name="id"] {
     width: 15rem;
@@ -47,9 +51,31 @@ input[name="id"] {
 
 input[name="name"] {
     width: 15rem;
+}*/
+
+input[type=text]{
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.66);
+    border:2px solid #aaa;
+    border-radius:2rem;
+    margin:8px 0;
+    margin-bottom: 20px;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+    -webkit-border-radius:2rem;
+    -moz-border-radius:2rem;
+    -ms-border-radius:2rem;
+    -o-border-radius:2rem;
 }
 
-input:hover {
+input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+}
+
+input[type=text]:hover {
     transition-duration: 0.5s;
     background-color: white;
 }
