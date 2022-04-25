@@ -38,7 +38,6 @@ const IDs = []
 const dates = []
 const rows = []
 
-
 for (var i = 0, j = i + 1; i < dummyData.length; i++, j++) {
   names[i] = dummyData[i].data[1]
   IDs[i] = dummyData[i].data[0]
@@ -47,6 +46,8 @@ for (var i = 0, j = i + 1; i < dummyData.length; i++, j++) {
   row.setAttribute("id", `row${j + 1}`)
   rows[i] = row
 }
+
+
 
 for (var i = 0; i < dummyData.length; i++) {
   var tabledata_n = document.createElement("td")
@@ -75,7 +76,6 @@ function alert_no_s() {
 }
 
 function show() {
-
   for (var i = 0; i < dummyData.length + 1; i++) {
     document.getElementById(`row${i + 1}`).style.display = "none";
   }
@@ -93,10 +93,17 @@ function show() {
         found = false
         document.getElementById("row1").style.display = "table-row";
         document.getElementById(`row${j}`).style.display = "table-row";
+        document.getElementById(`row${j}`).onclick = function(){assignDepartment()};
+
       }
     }
   }
   if (found) {
     alert_no_s()
   }
+}
+
+function assignDepartment()
+{
+  window.location.href="student-department-assignment.html";
 }
