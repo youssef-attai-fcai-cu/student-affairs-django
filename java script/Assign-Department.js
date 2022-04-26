@@ -29,7 +29,7 @@ function isEmpty() {
 }
 
 function entered_data(){
-    alert("Department Assigned Successfully!");
+    confirm("Are you sure you want to assign this department?");
 }
 
 function assignFunction()
