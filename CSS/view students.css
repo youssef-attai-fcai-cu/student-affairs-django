@@ -1,5 +1,6 @@
 #view-students{
-  background-image: url("../images/team4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)),url("../images/team7.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -32,18 +33,20 @@
 {
   border-bottom: 1px solid #dddddd;
   background-color: #f3f3f36c;
+  transition-duration: 0.5s;
 }
 .contentTable tbody tr
 {
   font-weight: bold;
-    color: #e84118;
+    /* color: #e84118; */
+    color: black;
 }
 
 /*tr:nth-child(even) {
     background-color: whitesmoke;
 }*/
 .contentTable tbody tr:hover{
-  background-color: #dddddd;
+  background-color: #ffffff;
 }
 caption {
     font-size: 40px;
@@ -71,7 +74,7 @@ caption {
     appearance: none; -webkit-appearance: none; 
    }
   
-  .container:checked{ box-shadow: inset 0 0 0 20px #e84118; }
+  .container:checked{ box-shadow: inset 0 0 0 20px rgb(255, 89, 0); }
 
   
   .dropdown-check-list .anchor {
@@ -116,7 +119,7 @@ caption {
   }
   
   .dropdown-check-list.visible .anchor {
-    color: #e84118;
+    color: rgb(255, 89, 0);
   }
   
   .dropdown-check-list.visible .items {
@@ -131,13 +134,13 @@ caption {
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
-    color: white;
+    color: black;
     border-radius: 15px;
     display: block;
     border: 0px;
     font-weight: 700;
     /*background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);*/
-    background-color: #e84118 ;
+    background-color: rgb(255, 89, 0) ;
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
