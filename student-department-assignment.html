@@ -41,6 +41,7 @@
       </div>
 
       <div class="field-container">
+<<<<<<< Updated upstream
         <form>
           <div class="ID">
             <label><b>Student ID</b></label>
@@ -52,6 +53,17 @@
               required
             />
           </div>
+=======
+        <form id="optionsForm" >
+        <div class="ID">
+          <label><b>Student ID</b></label>
+          <input 
+            type="text" 
+            name="" 
+            id="student-id" 
+            placeholder="Enter ID" required />
+        </div>
+>>>>>>> Stashed changes
 
           <div class="Name">
             <label><b>Student Name</b></label>
@@ -63,6 +75,7 @@
             />
           </div>
 
+<<<<<<< Updated upstream
           <div class="select-box" style="margin-top: 1rem">
             <label style="margin-top: 1rem; margin-right: 1rem"
               ><b>Choose Department</b></label
@@ -126,9 +139,39 @@
               </div>
               <div class="selected" value="Choose Department">
                 <b>Choose Department</b>
+=======
+        <div class="select-box" style="margin-top: 1rem">
+          <label style="margin-top: 1rem ; margin-right: 1rem;"><b>Choose Department</b></label>
+          <div class="select-box-container">
+            <div class="options-container">
+              <div class="option">
+                <input type="radio" class="radio" id="CS" name="dept_choice" value="CS" />
+                <label for="CS"><b>Computer Science</b></label>
+              </div>
+
+              <div class="option">
+                <input type="radio" class="radio" id="AI" name="dept_choice" value="AI"/>
+                <label for="AI"><b>Artificial Intelligence</b></label>
+              </div>
+
+              <div class="option">
+                <input type="radio" class="radio" id="IT" name="dept_choice" value="IT"/>
+                <label for="IT"><b>Information Technology</b></label>
+              </div>
+
+              <div class="option">
+                <input type="radio" class="radio" id="IS" name="dept_choice" value="IS"/>
+                <label for="IS"><b>Information Systems</b></label>
+              </div>
+
+              <div class="option">
+                <input type="radio" class="radio" id="DS" name="dept_choice" value="DS"/>
+                <label for="DS"><b>Decision Support</b></label>
+>>>>>>> Stashed changes
               </div>
             </div>
           </div>
+<<<<<<< Updated upstream
 
           <div class="btn-assign">
             <button
@@ -140,6 +183,13 @@
               Assign Department
             </button>
           </div>
+=======
+        </div>
+        
+        <div class="btn-assign">
+          <button class="assign-btn" id="assign-btn" type="submit">Assign Department</button>
+        </div>
+>>>>>>> Stashed changes
         </form>
       </div>
     </div>
