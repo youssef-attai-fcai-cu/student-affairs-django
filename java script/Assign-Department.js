@@ -112,9 +112,6 @@ document.getElementById('assign-btn').onclick = function() {
                     return;
                 }
             }
-            /*else if(nameField.length != 0 && idField.length != 0 && radio.unchecked){
-                isEmpty();
-            }*/
         }
     }
         /*for (var radio of radios)
