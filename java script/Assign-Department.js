@@ -105,6 +105,7 @@ document.getElementById("assign-btn").onclick = function () {
   // the if statement checks if text field is empty OR selectedDept is falsy (undefined or empty)
   if (nameField.length == 0 || idField.length == 0 || !selectedDept) {
     console.log(selectedDept);
+
     isEmpty();
   } else {
     alert(selectedDept);
