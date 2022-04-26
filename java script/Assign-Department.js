@@ -38,12 +38,22 @@ function assignFunction()
 
     let idField = document.querySelector(`#student-id`).value;
 
-    //let radioFields = document.querySelectorAll(`.radio`);
+    //let falsefield = document.getElementsByClassName("selected").value;
+
+    //let radioFields = document.querySelectorAll(`.radio`).value;
 
     if (nameField.length == 0 || idField.length == 0)
     {
         isEmpty();
         return false;
+        /*if(falsefield == radioFields)
+        {
+            isEmpty();
+            return false;
+        }
+        else {
+        entered_data();
+        return true; }*/
     }
     else 
     {
