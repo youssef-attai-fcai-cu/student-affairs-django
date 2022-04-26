@@ -17,7 +17,16 @@ function displayStudent(student) {
       var status = document.createElement("button");
       status.setAttribute("class","status");
       status.onclick = function () {
-        data.innerText = data.innerText == "inactive" ? "active" : "inactive";
+        if(student.data[9]==true)
+        {
+          student.data[9]=false;
+          data.innerText="inactive";
+        }
+        else{
+          student.data[9]=true;
+          data.innerText="active";
+        }
+        //data.innerText = data.innerText == "inactive" ? "active" : "inactive";
       };
       status.setAttribute("name", "change status");
       status.innerHTML = "change status";
