@@ -1,4 +1,4 @@
-let nameField = document.querySelector(`#student-name`).value;
+/*let nameField = document.querySelector(`#student-name`).value;
 
 let idField = document.querySelector(`#student-id`).value;
 
@@ -23,23 +23,31 @@ function assignFunction() {
         entered_data()
     }
 
+}*/
+function isEmpty() {
+    alert("Please fill out the required fields!");
 }
 
-/*let nameField = document.querySelector(`#student-name`).value;
-
-let idField = document.querySelector(`#student-id`).value;
+function entered_data(){
+    alert("Department Assigned Successfully!");
+}
 
 function assignFunction()
 {
+    let nameField = document.querySelector(`#student-name`).value;
 
-if (nameField.length == 0 || idField.length == 0)
-{
-    alert("Please input a Value");
-    return false;
+    let idField = document.querySelector(`#student-id`).value;
+
+    //let radioFields = document.querySelectorAll(`.radio`);
+
+    if (nameField.length == 0 || idField.length == 0)
+    {
+        isEmpty();
+        return false;
+    }
+    else 
+    {
+        entered_data();
+        return true; 
+    }
 }
-else 
-{
-    alert('Code has accepted : you can try another');
-    return true; 
-}
-}*/

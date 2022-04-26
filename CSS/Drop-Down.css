@@ -12,6 +12,11 @@ h2 {
     margin: 16px;
 }
 
+b{
+    margin-right: 1rem;
+    text-align: center;
+}
+
 .container {
     margin-top: 20px;
     padding: 32px;
@@ -55,23 +60,9 @@ text-align: center;
     -o-border-radius: 8px;
 }
 
-.selected::after {
-    content: "";
-    background: url("img/arrow-down.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    height: 100%;
-    width: 32px;
-    right: 10px;
-    top: 5px;
-    transition: all 0.4s;
-}
-
 .select-box .options-container.active {
     max-height: 240px;
     opacity: 1;
-    overflow-y: scroll;
 }
 
 .select-box .options-container.active + .selected::after {
@@ -106,4 +97,17 @@ text-align: center;
 
 .select-box .option .radio {
     display: none;
+}
+
+.selected::after {
+    content: "";
+    background: url("../images/down-arrow-of-angle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 25px;
+    right: 10px;
+    top: 8px;
+    transition: all 0.4s;
 }

@@ -44,9 +44,14 @@
       </div>
 
       <div class="field-container">
+        <form>
         <div class="ID">
           <label><b>Student ID</b></label>
-          <input type="text" id="student-id" placeholder="Enter ID" required />
+          <input 
+            type="text" 
+            name="" 
+            id="student-id" 
+            placeholder="Enter ID" required />
         </div>
 
         <div class="Name">
@@ -60,37 +65,37 @@
             <div class="options-container">
               <div class="option">
                 <input type="radio" class="radio" id="CS" name="dept_choice" />
-                <label>Computer Science</label>
+                <label><b>Computer Science</b></label>
               </div>
 
               <div class="option">
                 <input type="radio" class="radio" id="AI" name="dept_choice" />
-                <label>Artificial Intelligence</label>
+                <label><b>Artificial Intelligence</b></label>
               </div>
 
               <div class="option">
                 <input type="radio" class="radio" id="IT" name="dept_choice" />
-                <label>Information Technology</label>
+                <label><b>Information Technology</b></label>
               </div>
 
               <div class="option">
                 <input type="radio" class="radio" id="IS" name="dept_choice" />
-                <label>Information Systems</label>
+                <label><b>Information Systems</b></label>
               </div>
 
               <div class="option">
                 <input type="radio" class="radio" id="DS" name="dept_choice" />
-                <label>Decision Support</label>
+                <label><b>Decision Support</b></label>
               </div>
             </div>
-            <div class="selected">Choose Department</div>
+            <div class="selected"><b>Choose Department</b></div>
           </div>
         </div>
-
+        
         <div class="btn-assign">
           <button class="assign-btn" id="assign-btn" type="submit" onclick="assignFunction()">Assign Department</button>
         </div>
-
+        </form>
       </div>
     </div>
 
