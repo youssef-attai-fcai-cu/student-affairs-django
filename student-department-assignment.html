@@ -33,9 +33,6 @@
             Student department assignment
           </a>
         </li>
-        <!-- <li>
-          <a href="Contact-Us.html"> Contact</a>
-        </li> -->
       </ul>
     </nav>
     <div class="big-container">
@@ -45,62 +42,109 @@
 
       <div class="field-container">
         <form>
-        <div class="ID">
-          <label><b>Student ID</b></label>
-          <input 
-            type="text" 
-            name="" 
-            id="student-id" 
-            placeholder="Enter ID" required />
-        </div>
+          <div class="ID">
+            <label><b>Student ID</b></label>
+            <input
+              type="text"
+              name=""
+              id="student-id"
+              placeholder="Enter ID"
+              required
+            />
+          </div>
 
-        <div class="Name">
-          <label><b>Student Name</b></label>
-          <input type="text" id="student-name" placeholder="Enter a name" required />
-        </div>
+          <div class="Name">
+            <label><b>Student Name</b></label>
+            <input
+              type="text"
+              id="student-name"
+              placeholder="Enter a name"
+              required
+            />
+          </div>
 
-        <div class="select-box" style="margin-top: 1rem">
-          <label style="margin-top: 1rem ; margin-right: 1rem;"><b>Choose Department</b></label>
-          <div class="select-box-container">
-            <div class="options-container">
-              <div class="option">
-                <input type="radio" class="radio" id="CS" name="dept_choice" value="Computer Science"/>
-                <label><b>Computer Science</b></label>
+          <div class="select-box" style="margin-top: 1rem">
+            <label style="margin-top: 1rem; margin-right: 1rem"
+              ><b>Choose Department</b></label
+            >
+            <div class="select-box-container">
+              <div class="options-container">
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="CS"
+                    name="dept_choice"
+                    value="Computer Science"
+                  />
+                  <label><b>Computer Science</b></label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="AI"
+                    name="dept_choice"
+                    value="Artificial Intelligence"
+                  />
+                  <label><b>Artificial Intelligence</b></label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="IT"
+                    name="dept_choice"
+                    value="Information Technology"
+                  />
+                  <label><b>Information Technology</b></label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="IS"
+                    name="dept_choice"
+                    value="Information Systems"
+                  />
+                  <label><b>Information Systems</b></label>
+                </div>
+
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="DS"
+                    name="dept_choice"
+                    value="Decision Support"
+                  />
+                  <label><b>Decision Support</b></label>
+                </div>
               </div>
-
-              <div class="option">
-                <input type="radio" class="radio" id="AI" name="dept_choice" value="Artificial Intelligence"/>
-                <label><b>Artificial Intelligence</b></label>
-              </div>
-
-              <div class="option">
-                <input type="radio" class="radio" id="IT" name="dept_choice" value="Information Technology"/>
-                <label><b>Information Technology</b></label>
-              </div>
-
-              <div class="option">
-                <input type="radio" class="radio" id="IS" name="dept_choice" value="Information Systems"/>
-                <label><b>Information Systems</b></label>
-              </div>
-
-              <div class="option">
-                <input type="radio" class="radio" id="DS" name="dept_choice" value="Decision Support"/>
-                <label><b>Decision Support</b></label>
+              <div class="selected" value="Choose Department">
+                <b>Choose Department</b>
               </div>
             </div>
-            <div class="selected" value="Choose Department"><b>Choose Department</b></div>
           </div>
-        </div>
-        
-        <div class="btn-assign">
-          <button class="assign-btn" id="assign-btn" type="submit" onclick="assignFunction()">Assign Department</button>
-        </div>
+
+          <div class="btn-assign">
+            <button
+              class="assign-btn"
+              id="assign-btn"
+              type="submit"
+              onclick="assignFunction()"
+            >
+              Assign Department
+            </button>
+          </div>
         </form>
       </div>
     </div>
 
     <script src="java script/Drop-Down.js"></script>
     <script src="java script/Assign-Department.js"></script>
-    
   </body>
 </html>
