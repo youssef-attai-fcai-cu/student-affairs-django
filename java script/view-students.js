@@ -15,6 +15,7 @@ function displayStudent(student) {
     if (i == 9) {
       data.innerText = student.data[i] ? "active" : "inactive";
       var status = document.createElement("button");
+      status.setAttribute("class","status");
       status.onclick = function () {
         data.innerText = data.innerText == "inactive" ? "active" : "inactive";
       };
