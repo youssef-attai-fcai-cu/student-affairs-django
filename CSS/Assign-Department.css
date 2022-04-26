@@ -1,5 +1,5 @@
 #assign-dept-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../images/team2.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../images/team.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -34,25 +34,6 @@
     
 }
 
-/*input {
-    padding: 0.5rem;
-    margin: 1rem 1rem;
-    border-radius: 2rem;
-    background-color: rgba(255, 255, 255, 0.66);
-    transition-duration: 0.5s;
-    -webkit-border-radius:;
-    -moz-border-radius:;
-    -ms-border-radius:;
-    -o-border-radius:;
-}
-input[name="id"] {
-    width: 15rem;
-}
-
-input[name="name"] {
-    width: 15rem;
-}*/
-
 input[type=text]{
     width:100%;
     background-color: rgba(255, 255, 255, 0.66);
@@ -80,26 +61,12 @@ input[type=text]:hover {
     background-color: white;
 }
 
-select {
-    padding: 0.5rem;
-    margin: 1rem 1rem;
-    border-radius: 2rem;
-    background-color: rgba(255, 255, 255, 0.66);
-    transition-duration: 0.5s;
-}
-
-select:hover:not(.department) {
-    transition-duration: 0.5s;
-    background-color: white;
-
-}
-
-.btn-add {
+.btn-assign {
     text-align: center;
     padding-top: 1rem;
 }
 
-.add-btn {
+.assign-btn {
     padding: 0.5rem;
     margin: 1rem;
     border-radius: 2rem;
@@ -107,7 +74,7 @@ select:hover:not(.department) {
     transition-duration: 0.5s;
 }
 
-.add-btn:hover {
+.assign-btn:hover {
     transition-duration: 0.5s;
     background-color: white;
 }

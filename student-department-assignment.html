@@ -46,12 +46,12 @@
       <div class="field-container">
         <div class="ID">
           <label><b>Student ID</b></label>
-          <input type="text" name="id" placeholder="Enter ID" required />
+          <input type="text" id="student-id" placeholder="Enter ID" required />
         </div>
 
         <div class="Name">
           <label><b>Student Name</b></label>
-          <input type="text" name="name" placeholder="Enter a name" required />
+          <input type="text" id="student-name" placeholder="Enter a name" required />
         </div>
 
         <div class="select-box" style="margin-top: 1rem">
@@ -83,16 +83,19 @@
                 <label>Decision Support</label>
               </div>
             </div>
-
             <div class="selected">Choose Department</div>
           </div>
         </div>
 
-        <div class="btn-add">
-          <button class="add-btn" type="submit">Assign Department</button>
+        <div class="btn-assign">
+          <button class="assign-btn" id="assign-btn" type="submit" onclick="assignFunction()">Assign Department</button>
         </div>
+
       </div>
     </div>
+
     <script src="java script/Drop-Down.js"></script>
+    <script src="java script/Assign-Department.js"></script>
+    
   </body>
 </html>
