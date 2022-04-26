@@ -153,10 +153,10 @@
 .overlay {
     width: 0;
     height: 0;
-    border-top: 500px solid #fff;
+    border-top: 500px solid #000000;
     border-right: 500px solid transparent;
-    border-bottom: 500px solid #fff;
-    border-left: 500px solid #fff;
+    border-bottom: 500px solid #000000;
+    border-left: 500px solid #000000;
     position: absolute;
     left: 0;
     top: 0;
@@ -164,30 +164,31 @@
 
 
 .Human-resourses a {
-    color: white;
+    color: black;
     text-decoration: none;
 
 }
 
 .Students-hover a {
-    color: white;
+    color: black;
     text-decoration: none;
+    transition-duration:0.7s ;
 }
 
 .Students-hover a:hover {
-    color: #24252A;
+    color: white;
     /* color: #da5f40; */
     transition: 0.7s;
 }
 
 .Higher-studies a {
-    color: white;
+    color: black;
     text-decoration: none;
 
 }
 
 .Laboratory-tracking a {
-    color: white;
+    color: black;
     text-decoration: none;
 
 }
