@@ -24,12 +24,16 @@ function assignFunction() {
     }
 
 }*/
+
+// let emptyOption = document.getElementById("Empty");
+// console.log(emptyOption.value);
+// emptyOption.style.visibility = "hidden";
 function isEmpty() {
-    alert("Please fill out the required fields!");
+  alert("Please fill out the required fields!");
 }
 
-function entered_data(){
-    confirm("Are you sure you want to assign this department?");
+function entered_data() {
+  confirm("Are you sure you want to assign this department?");
 }
 
 /*function assignFunction()
@@ -84,40 +88,31 @@ function entered_data(){
 }*/
 assignBtn = document.getElementById("optionsForm");
 
-assignBtn.addEventListener("submit", function(e){
-    e.preventDefault();
-})
+assignBtn.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
 
-document.getElementById('assign-btn').onclick = function() {
-    var radios = document.getElementsByName('dept_choice');
+document.getElementById("assign-btn").onclick = function () {
+  //   var radios = document.getElementsByName("dept_choice"); no need for this anymore
 
-    let nameField = document.querySelector(`#student-name`).value;
+  let nameField = document.querySelector(`#student-name`).value;
 
-    let idField = document.querySelector(`#student-id`).value;
-    
-    if (nameField.length == 0 && idField.length == 0)
-    {
-        isEmpty();    
-    }
-    else
-    {
-        for (var radio of radios)
-        {
-            if (nameField.length != 0 && idField.length != 0) {
-                console.log("Outer IF loop")
-                if(radio.checked){
-                    console.log("Inner IF loop")
-                    alert(radio.value);
-                    confirm("Are you sure you want to assign this department?");
-                    return;
-                }
-            }
-            /*else if(nameField.length != 0 && idField.length != 0 && radio.unchecked){
-                isEmpty();
-            }*/
-        }
-    }
-        /*for (var radio of radios)
+  let idField = document.querySelector(`#student-id`).value;
+  // get the value of the selected department
+  let selectedDept = document
+    .getElementById("selected-dept")
+    .getAttribute("value");
+  // the if statement checks if text field is empty OR selectedDept is falsy (undefined or empty)
+  if (nameField.length == 0 || idField.length == 0 || !selectedDept) {
+    console.log(selectedDept);
+    isEmpty();
+  } else {
+    alert(selectedDept);
+    confirm("Are you sure you want to assign this department?");
+    return;
+  }
+
+  /*for (var radio of radios)
         {
             if (nameField.length != 0 && idField.length != 0 && radio.checked) {
                 alert("Department selected: ", radio.value);
@@ -125,5 +120,4 @@ document.getElementById('assign-btn').onclick = function() {
                 break;
             }
         }*/
-}
-
+};
