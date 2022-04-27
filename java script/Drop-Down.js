@@ -13,7 +13,7 @@ optionsList.forEach((o) => {
 
     //put the actual value (cs,it,etc) inside "selected"
     selected.setAttribute("value", o.querySelector("input").value);
-    console.log(o.querySelector("input").value); // for kareem's eyes only
+    console.log(o.querySelector("input").value);
     optionsContainer.classList.remove("active");
   });
 });
