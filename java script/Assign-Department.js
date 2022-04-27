@@ -45,3 +45,30 @@ document.getElementById("assign-btn").onclick = function () {
     }
 
 };
+
+let idEntered = document.querySelector(`input[id="student-id"]`);
+
+function onlyNumberKey(evt) {
+    var ASCIICode = evt.which;
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) 
+    {   
+        if (ASCIICode == 189) {
+        return;
+        }
+        evt.preventDefault();
+    }
+}
+
+idEntered.addEventListener("keydown", onlyNumberKey);
+
+
+let nameEntered = document.querySelector(`input[id="student-name"]`);
+
+function onlyLetterKey(evt) {
+    let ASCIICode = evt.which;
+    if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+    }
+}
+
+nameEntered.addEventListener("keydown", onlyLetterKey);
