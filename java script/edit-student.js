@@ -90,6 +90,18 @@ phoneInput.addEventListener("keydown", onlyNumberKey);
 updateBtn.addEventListener("click", successfulUpdate);
 
 deleteBtn.addEventListener("click", successfulDelete);
+let inputName = document.querySelector(`input[name="name"]`);
+
+function onlyLetterKey(evt) {
+  let ASCIICode = evt.which;
+  if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+  }
+}
+
+inputName.addEventListener("keydown", onlyLetterKey);
+
+inputName.addEventListener("keydown", onlyLetterKey);
 
 // let selectLevel = document.getElementById("level");
 // let selectDepartment = document.getElementById("department");

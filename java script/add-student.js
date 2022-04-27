@@ -68,7 +68,7 @@ function onlyNumberKey(evt) {
   }
 }
 function gpaNumbers(evt) {
-  var ASCIICode = evt.which;
+  let ASCIICode = evt.which;
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 52)) {
     if (ASCIICode == 190) {
       return;
@@ -101,3 +101,14 @@ selectLevel.addEventListener("change", function (ev) {
     });
   }
 });
+
+let inputName = document.querySelector(`input[name="name"]`);
+
+function onlyLetterKey(evt) {
+  let ASCIICode = evt.which;
+  if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+  }
+}
+
+inputName.addEventListener("keydown", onlyLetterKey);
