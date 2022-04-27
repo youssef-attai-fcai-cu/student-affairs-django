@@ -3,7 +3,11 @@ function isEmpty() {
     alert("Please fill out the required fields!");
 }
 
-function entered_data() {
+function assign_success(){
+    alert("Department Assigned Successfully!")
+}
+
+function dept_confirm() {
     confirm("Are you sure you want to assign this department?");
 }
 
@@ -32,7 +36,11 @@ document.getElementById("assign-btn").onclick = function () {
         isEmpty();
     } else {
         alert(selectedDept);
-        confirm("Are you sure you want to assign this department?");
+        
+        if(confirm("Are you sure you want to assign this department?")){
+            assign_success();
+        }
+        
         return;
     }
 
