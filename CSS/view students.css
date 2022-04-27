@@ -57,6 +57,7 @@ caption {
   color: whitesmoke;
   text-shadow: 1px 1px #060606;
 }
+/* drop down list-----------------------------------------*/
 
 .dropdown-check-list {
   display: inline-block;
@@ -67,7 +68,7 @@ caption {
   text-shadow: 1px 1px black;
 }
 
-.container {
+.dropdown-check-list li input {
   width: 20px;
   height: 20px;
   margin-left: 5px;
@@ -83,6 +84,10 @@ caption {
 
 .container:checked {
   box-shadow: inset 0 0 0 20px rgb(255, 89, 0);
+}
+/* disabled color checkbox*/
+.container-disabled-option:checked {
+  box-shadow: inset 0 0 0 20px  rgb(118, 101, 83);
 }
 
 
@@ -136,7 +141,7 @@ caption {
 }
 
 
-
+/* button status-----------------------------------------*/
 .status {
   margin: 5px;
   padding: 10px 10px;

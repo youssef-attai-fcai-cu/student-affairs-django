@@ -19,10 +19,17 @@ function displayStudent(student) {
       status.onclick = function () {
         if (student.data[9] == true) {
           student.data[9] = false;
-          data.innerText = "inactive";
+          //data.innerText = "inactive";
         } else {
           student.data[9] = true;
-          data.innerText = "active";
+          //data.innerText = "active";
+        }
+        if(student.data[9]==true)
+        {
+          data.innerText="active";
+        }
+        else{
+          data.innerText="inactive";
         }
         //data.innerText = data.innerText == "inactive" ? "active" : "inactive";
       };
