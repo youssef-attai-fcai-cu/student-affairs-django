@@ -87,7 +87,7 @@ caption {
 }
 /* disabled color checkbox*/
 .container-disabled-option:checked {
-  box-shadow: inset 0 0 0 20px  rgb(170, 150, 128);
+  box-shadow: inset 0 0 0 20px  rgb(118, 101, 83);
 }
 
 
