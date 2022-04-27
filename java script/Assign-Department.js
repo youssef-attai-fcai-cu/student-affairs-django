@@ -9,6 +9,7 @@ function assign_success(){
 
 function dept_confirm() {
     confirm("Are you sure you want to assign this department?");
+    return true;
 }
 
 
@@ -37,7 +38,7 @@ document.getElementById("assign-btn").onclick = function () {
     } else {
         alert(selectedDept);
         
-        if(confirm("Are you sure you want to assign this department?")){
+        if(dept_confirm()){
             assign_success();
         }
         
