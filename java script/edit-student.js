@@ -3,7 +3,7 @@
 let updateBtn = document.getElementById("update-btn");
 let deleteBtn = document.getElementById("delete-btn");
 
-let inputFields = document.querySelectorAll(`input`);
+let inputFields = document.querySelectorAll(`input[name = "name"]`);
 
 let selectFields = document.querySelectorAll(`select`);
 
@@ -21,7 +21,9 @@ function successfulUpdate() {
 
 function successfulDelete() {
   if (validateFields()) {
-    confirm("Are you sure you want to delete this student?");
+    if (confirm("Are you sure you want to delete this student?")) {
+      alert("Successfully deleted student!");
+    }
   }
 }
 
@@ -98,8 +100,6 @@ function onlyLetterKey(evt) {
     evt.preventDefault();
   }
 }
-
-inputName.addEventListener("keydown", onlyLetterKey);
 
 inputName.addEventListener("keydown", onlyLetterKey);
 
