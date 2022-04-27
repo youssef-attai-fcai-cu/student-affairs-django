@@ -15,16 +15,14 @@ function displayStudent(student) {
     if (i == 9) {
       data.innerText = student.data[i] ? "active" : "inactive";
       var status = document.createElement("button");
-      status.setAttribute("class","status");
+      status.setAttribute("class", "status");
       status.onclick = function () {
-        if(student.data[9]==true)
-        {
-          student.data[9]=false;
-          data.innerText="inactive";
-        }
-        else{
-          student.data[9]=true;
-          data.innerText="active";
+        if (student.data[9] == true) {
+          student.data[9] = false;
+          data.innerText = "inactive";
+        } else {
+          student.data[9] = true;
+          data.innerText = "active";
         }
         //data.innerText = data.innerText == "inactive" ? "active" : "inactive";
       };
@@ -53,9 +51,3 @@ function showhide(obj, name) {
 for (var i = 0; i < dummyData.length; i++) {
   displayStudent(dummyData[i]);
 }
-
-
-
-
-
-
