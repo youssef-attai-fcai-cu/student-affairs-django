@@ -91,22 +91,22 @@ updateBtn.addEventListener("click", successfulUpdate);
 
 deleteBtn.addEventListener("click", successfulDelete);
 
-let selectLevel = document.getElementById("level");
-let selectDepartment = document.getElementById("department");
-let departmentSelectOptions = document.querySelectorAll(`#department option`);
+// let selectLevel = document.getElementById("level");
+// let selectDepartment = document.getElementById("department");
+// let departmentSelectOptions = document.querySelectorAll(`#department option`);
 
-selectLevel.addEventListener("change", function (ev) {
-  let value = selectLevel.value;
-  selectDepartment.value = "Empty";
-  if (value === "lvl1" || value === "lvl2") {
-    departmentSelectOptions.forEach(function (option) {
-      if (option.value !== "Gen" && option.value !== "Empty") {
-        option.style.display = "none";
-      }
-    });
-  } else {
-    departmentSelectOptions.forEach(function (option) {
-      option.style.display = "inline";
-    });
-  }
-});
+// selectLevel.addEventListener("change", function (ev) {
+//   let value = selectLevel.value;
+//   selectDepartment.value = "Empty";
+//   if (value === "lvl1" || value === "lvl2") {
+//     departmentSelectOptions.forEach(function (option) {
+//       if (option.value !== "Gen" && option.value !== "Empty") {
+//         option.style.display = "none";
+//       }
+//     });
+//   } else {
+//     departmentSelectOptions.forEach(function (option) {
+//       option.style.display = "inline";
+//     });
+//   }
+// });
