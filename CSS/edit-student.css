@@ -55,7 +55,7 @@ input[name="email"] {
     width: 15rem;
 }
 
-input:hover {
+input:hover:not(#department) {
     transition-duration: 0.5s;
     background-color: white;
 }
@@ -68,7 +68,7 @@ select {
     transition-duration: 0.5s;
 }
 
-select:hover:not(.department) {
+select:hover{
     transition-duration: 0.5s;
     background-color: white;
 
