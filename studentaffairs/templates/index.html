@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS/styles.css" />
-    <link rel="icon" type="image/x-icon" href="images/Logo-FCAI.jpg" />
+    <link rel="stylesheet" href="{% static 'assets/CSS/styles.css'%}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -18,22 +19,22 @@
         <nav>
           <ul>
             <li>
-              <a href="index.html"> Home </a>
+              <a href="index.html" name="index"> Home </a>
             </li>
             <li>
-              <a href="view-students.html"> View students </a>
+              <a href="view-students.html" name="view-students"> View students </a>
             </li>
             <li>
-              <a href="edit-student-data.html"> Edit a student </a>
+              <a href="edit-student-data.html" name="edit-student-data"> Edit a student </a>
             </li>
             <li>
-              <a href="add-student.html"> Add a new student </a>
+              <a href="add-student.html" name="add-student"> Add a new student </a>
             </li>
             <li>
-              <a href="search-student.html"> Search for a student </a>
+              <a href="search-student.html" name="search-student"> Search for a student </a>
             </li>
             <li>
-              <a href="student-department-assignment.html">
+              <a href="student-department-assignment.html" name="student-department-assignment">
                 Student department assignment
               </a>
             </li>

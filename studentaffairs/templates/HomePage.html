@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS/homepage.css" />
+    <link rel="stylesheet" href="{% static 'assets/CSS/homepage.css'%}" />
 
-    <link rel="icon" type="image/x-icon" href="images/Logo-FCAI.jpg" />
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
     <title>Homepage</title>
   </head>
   <body>
@@ -15,14 +16,14 @@
         <div class="overlay"></div>
         <div id="circle">
           <div class="feature" id="one">
-            <img src="images/Human Resources.png" />
+            <img src="{% static 'assets/images/Human Resources.png'%}" />
             <div class="Human-resourses">
               <h1><a href="#">Human Resources</a></h1>
             </div>
           </div>
           <div class="feature" id="two">
             <img
-              src="images/studentaffairs-removebg-preview.png"
+              src="{% static 'assets/images/studentaffairs-removebg-preview.png'%}"
               style="margin-right: 1rem"
             />
             <div class="Students-hover">
@@ -32,13 +33,13 @@
             </div>
           </div>
           <div class="feature" id="three">
-            <img src="images/higherstudies-removebg-preview.png" />
+            <img src="{% static 'assets/images/higherstudies-removebg-preview.png'%}" />
             <div class="Higher-studies">
               <h1><a href="#">Higher Studies</a></h1>
             </div>
           </div>
           <div class="feature" id="four">
-            <img src="images/laboratory-removebg-preview.png" />
+            <img src="{% static 'assets/images/laboratory-removebg-preview.png'%}" />
             <div class="Laboratory-tracking">
               <h1><a href="#">Laboratory Tracking</a></h1>
             </div>
@@ -47,12 +48,12 @@
       </div>
 
       <div class="controls">
-        <img src="images/arrow.png" id="upBtn" />
+        <img src="{% static 'assets/images/arrow.png'%}" id="upBtn" />
         <h3>Scroll for Projects</h3>
-        <img src="images/arrow.png" id="downBtn" />
+        <img src="{% static 'assets/images/arrow.png'%}" id="downBtn" />
       </div>
     </div>
 
-    <script src="java script/Home-page.js"></script>
+    <script src="{% static 'assets/java script/Home-page.js'%}"></script>
   </body>
 </html>

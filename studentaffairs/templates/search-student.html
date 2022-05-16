@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'assets/CSS/styles.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/CSS/Search-Student.css'%}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
+    <title>Search</title>
+  </head>
+
+  <body id="Search-Student-body">
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html" name="index"> Home </a>
+        </li>
+        <li>
+          <a href="view-students.html" name="view-students"> View students </a>
+        </li>
+        <li>
+          <a href="edit-student-data.html" name="edit-student-data"> Edit a student </a>
+        </li>
+        <li>
+          <a href="add-student.html" name="add-student"> Add a new student </a>
+        </li>
+        <li>
+          <a href="search-student.html" name="search-student"> Search for a student </a>
+        </li>
+        <li>
+          <a href="student-department-assignment.html" name="student-department-assignment">
+            Student department assignment
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <br />
+    <p id="welcome">Welcome, you can view students from here:</p>
+    <form  class="search-box" action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+      <input
+        class="search-txt"
+        type="text"
+        name="student"
+        id="name-entered"
+        placeholder="Search Student"
+      />
+      <span class="show-names"
+        >try names like: mohamed,sherif,ahmed mohamed</span
+      >
+      <button type="submit" class="search-btn"><p id="s" >Search</p></button>
+      
+    </form>
+    {% if post %}
+    {% for i in post %}
+    <div id="show-table">
+      <table class="content-table">
+        <thead>
+          <tr id="row1">
+            <th>Name</th>
+            <th id="ID">ID</th>
+            <th id="Year">Year</th>
+          </tr>
+        </thead>
+        <tbody id="SS-tbody">
+          <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.IDS}}</td>
+            <td>{{i.date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}   
+    {% endif %}
+
+    {% if f == False %}
+    <div class="not-found">
+      <p>This student does not exist</p>
+    </div>
+    {% endif %}
+
+    {% if empty == False %}
+    <div class="not-found">
+      <p>Please enter a name</p>
+    </div>
+    {% endif %}
+
+    <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
+  </body>
+</html>
