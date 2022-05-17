@@ -48,13 +48,13 @@
         class="search-txt"
         type="text"
         name="student"
-        id="name-entered"
+        id="name-entered" 
         placeholder="Search Student"
       />
       <span class="show-names"
         >try names like: mohamed,sherif,ahmed mohamed</span
       >
-      <button type="submit" class="search-btn"><p id="s" >Search</p></button>
+      <button type="submit" class="search-btn" onclick="validation()"><p id="s" >Search</p></button>
       
     </form>
     {% if post %}
@@ -86,11 +86,7 @@
     </div>
     {% endif %}
 
-    {% if empty == False %}
-    <div class="not-found">
-      <p>Please enter a name</p>
-    </div>
-    {% endif %}
+  
 
     <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
   </body>

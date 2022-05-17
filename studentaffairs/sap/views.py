@@ -45,12 +45,10 @@ def search(request):
         sname=request.POST.get('student')
         post=informations.objects.all().filter(name=sname)
         found=True
-        empty=True
 
-        if(sname==""):
-            empty=False
-        elif(not(informations.objects.all().filter(name=sname).exists())):
-            found=False
+        if(not sname==""):
+            if(not(informations.objects.all().filter(name=sname).exists())):
+                found=False
 
             
         
@@ -58,7 +56,6 @@ def search(request):
             'inform':inform,
             'post':post,
             'f':found,
-            'empty':empty
         }
         return render(request,'search-student.html',context)
 
