@@ -1,5 +1,7 @@
+from cmath import inf
 from email import message
 import imp
+import json
 from multiprocessing import context
 from pickle import TRUE
 from ssl import AlertDescription
@@ -10,7 +12,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import informations
 from django.contrib import messages
+from django.http import JsonResponse
 from random import randint, randrange
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView
 #import pyautogui as pag
 # Create your views here.
 
@@ -67,9 +72,20 @@ def Homepage(request):
     return render(request, 'Homepage.html', {'inform': inform})
 
 
+class search(CreateView):
+    template_name="search-student.html"
+    form_class= UserCreationForm
+
+
+
 def search_student(request):
-    inform = informations.objects.all()
-    return render(request, 'search-student.html', {'inform': inform})
+    student_name=request.GET.get('name')
+    is_found=informations.objects.all().filter(name=student_name).exists()
+    inform=informations.objects.all()       
+    data={'is_found':is_found,'inform':list(inform.values())}
+    return JsonResponse(data)
+
+
 
 
 def student_department_assignment(request):
@@ -82,20 +98,3 @@ def view_students(request):
     return render(request, 'view-students.html', {'inform': inform})
 
 
-def search(request):
-    if request.method == 'POST':
-        inform = informations.objects.all()
-        sname = request.POST.get('student')
-        post = informations.objects.all().filter(name=sname)
-        found = True
-
-        if(not sname == ""):
-            if(not(informations.objects.all().filter(name=sname).exists())):
-                found = False
-
-        context = {
-            'inform': inform,
-            'post': post,
-            'f': found,
-        }
-        return render(request, 'search-student.html', context)

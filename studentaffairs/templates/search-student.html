@@ -11,7 +11,11 @@
     />
     <link rel="stylesheet" href="{% static 'assets/CSS/styles.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/CSS/Search-Student.css'%}" />
-    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'assets/images/Logo-FCAI.jpg'%}"
+    />
     <title>Search</title>
   </head>
 
@@ -25,16 +29,23 @@
           <a href="view-students.html" name="view-students"> View students </a>
         </li>
         <li>
-          <a href="edit-student-data.html" name="edit-student-data"> Edit a student </a>
+          <a href="edit-student-data.html" name="edit-student-data">
+            Edit a student
+          </a>
         </li>
         <li>
           <a href="add-student.html" name="add-student"> Add a new student </a>
         </li>
         <li>
-          <a href="search-student.html" name="search-student"> Search for a student </a>
+          <a href="search-student.html" name="search-student">
+            Search for a student
+          </a>
         </li>
         <li>
-          <a href="student-department-assignment.html" name="student-department-assignment">
+          <a
+            href="student-department-assignment.html"
+            name="student-department-assignment"
+          >
             Student department assignment
           </a>
         </li>
@@ -42,23 +53,22 @@
     </nav>
     <br />
     <p id="welcome">Welcome, you can view students from here:</p>
-    <form  class="search-box" action="{% url 'search' %}" method="post">
-    {% csrf_token %}
+    <form class="search-box">
       <input
         class="search-txt"
         type="text"
         name="student"
-        id="name-entered" 
+        id="name-entered"
         placeholder="Search Student"
       />
       <span class="show-names"
         >try names like: mohamed,sherif,ahmed mohamed</span
       >
-      <button type="submit" class="search-btn" onclick="validation()"><p id="s" >Search</p></button>
-      
+      <button type="button" class="search-btn" onclick="validation()">
+        <p id="s">Search</p>
+      </button>
     </form>
-    {% if post %}
-    {% for i in post %}
+
     <div id="show-table">
       <table class="content-table">
         <thead>
@@ -69,24 +79,61 @@
           </tr>
         </thead>
         <tbody id="SS-tbody">
-          <tr>
-            <td>{{i.name}}</td>
-            <td>{{i.IDS}}</td>
-            <td>{{i.date}}</td>
-          </tr>
+          <tr id="display_table"></tr>
         </tbody>
       </table>
     </div>
-    {% endfor %}   
-    {% endif %}
-
-    {% if f == False %}
-    <div class="not-found">
-      <p>This student does not exist</p>
-    </div>
-    {% endif %}
-
-  
+    {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
+    <script>
+      var temp, temp2, temp3;
+      var list = document.getElementById("display_table");
+
+      document.getElementById("row1").style.display = "none";
+      $("#name-entered").change(function (e) {
+        e.preventDefault();
+        var name = $(this).val();
+        $.ajax({
+          url: "/search_student/",
+          data: {
+            name: name,
+          },
+          dataType: "json",
+          success: function (data) {
+            while (list.hasChildNodes()) {
+              list.removeChild(list.firstChild);
+            }
+            if (data.is_found) {
+              document.getElementById("row1").style.display = "table-row";
+              document.getElementById("display_table").style.display =
+                "table-row";
+              for (var i in data.inform) {
+                if (data.inform[i].name == name) {
+                  temp = "<td>" + data.inform[i].name + "</td>";
+                  $("#display_table").append(temp);
+                  temp2 = "<td>" + data.inform[i].studID + "</td>";
+                  $("#display_table").append(temp2);
+                  temp3 = "<td>" + data.inform[i].date + "</td>";
+                  $("#display_table").append(temp3);
+                }
+              }
+            } else {
+              document.getElementById("row1").style.display = "none";
+              document.getElementById("display_table").style.display = "none";
+              if(name=="")
+              {
+
+              }
+              else
+              {
+                alert("This student does not exist")
+              }
+            }
+          },
+        });
+      });
+    </script>
+    {% endblock %}
   </body>
 </html>
