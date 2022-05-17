@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import informations
 from django.contrib import messages
+from random import randint, randrange
 #import pyautogui as pag
 # Create your views here.
 
@@ -22,6 +23,7 @@ def index(request):
 def add_student(request):
     if request.method == 'POST':
         studentName = request.POST['name']
+        studentID = 20200000 + randint(100, 999)
         studentGpa = request.POST['gpa']
         studentBirth = request.POST['date']
         studentGender = request.POST['gender']
@@ -38,8 +40,14 @@ def add_student(request):
             messages.info(request, 'Email already used')
             return redirect('add-student.html')
         else:
+            while(informations.objects.all().filter(studID=studentID)):
+                studentID = 20200000 + randint(100, 999)
+                if informations.objects.all().filter(studID=studentID):
+                    continue
+                else:
+                    break
 
-            newStudent = informations.objects.create(name=studentName, level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
+            newStudent = informations.objects.create(name=studentName, studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
                                                      department=studentDepartment, mobile=studentPhone, email=studentEmail)
             newStudent.save()
             messages.info(request, 'Student added successfully')
