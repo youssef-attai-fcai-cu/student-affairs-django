@@ -15,7 +15,7 @@ let phoneInput = document.getElementById("phone");
 
 function successfulAdd() {
   if (validateFields()) {
-    alert("Student added successfully!");
+    console.log("added");
   }
 }
 

@@ -13,6 +13,13 @@
     background-color: rgba(255, 255, 255,0.4);
     border-radius: 2rem;
 }
+.header3 {
+    font-size: large;
+    border: 2px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 2rem;
+}
 
 .big-container {
 
