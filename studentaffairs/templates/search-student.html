@@ -75,7 +75,7 @@
           <tr id="row1">
             <th>Name</th>
             <th id="ID">ID</th>
-            <th id="Year">Year</th>
+            <th id="Year">Date</th>
           </tr>
         </thead>
         <tbody id="SS-tbody">
@@ -97,7 +97,7 @@
         $.ajax({
           url: "/search_student/",
           data: {
-            name: name,
+            name: name.toLowerCase(),
           },
           dataType: "json",
           success: function (data) {
@@ -109,7 +109,7 @@
               document.getElementById("display_table").style.display =
                 "table-row";
               for (var i in data.inform) {
-                if (data.inform[i].name == name) {
+                if (data.inform[i].name == name.toLowerCase()) {
                   temp = "<td>" + data.inform[i].name + "</td>";
                   $("#display_table").append(temp);
                   temp2 = "<td>" + data.inform[i].studID + "</td>";
