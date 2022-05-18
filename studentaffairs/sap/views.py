@@ -16,7 +16,9 @@ from django.http import JsonResponse
 from random import randint, randrange
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
-#import pyautogui as pag
+from django.core.exceptions import ObjectDoesNotExist
+
+# import pyautogui as pag
 # Create your views here.
 
 
@@ -63,8 +65,56 @@ def add_student(request):
 
 
 def edit_student_data(request):
-    inform = informations.objects.all()
-    return render(request, 'edit-student-data.html', {'inform': inform})
+
+    if request.method == 'POST':
+        action = request.POST['action']
+        studentID = request.POST.get('studentID')
+        if action == 'delete':  # deletos
+            try:
+                row = informations.objects.get(studID=studentID)
+                row.delete()
+                messages.info(request, 'Student has been deleted')
+            except ObjectDoesNotExist:
+                messages.error(request, 'Delete failed')
+            return redirect("edit-student-data.html")
+        else:
+            studentName = request.POST['name']
+            studentGpa = request.POST['gpa']
+            studentBirth = request.POST['date']
+            studentGender = request.POST['gender']
+            studentLevel = request.POST['level']
+            studentPhone = request.POST['mobile']
+            studentEmail = request.POST['email']
+            studentStatus = request.POST['status']
+            try:
+                row = informations.objects.get(studID=studentID)
+                row.name = studentName
+                row.gpa = studentGpa
+                row.date = studentBirth
+                row.gender = studentGender
+                row.level = studentLevel
+                row.mobile = studentPhone
+                row.email = studentEmail
+                row.status = studentStatus
+
+                row.save()
+                messages.info(request, 'Updated student successfully')
+            except ObjectDoesNotExist:
+                messages.error(request, 'Edit failed')
+            return redirect("edit-student-data.html?studID="+studentID)
+
+    elif request.method == 'GET':
+        studentID = request.GET.get('studID')
+        if studentID is not None:
+            try:
+                row = informations.objects.get(studID=studentID)
+                inform = vars(row)
+                return render(request, 'edit-student-data.html', {'inform': inform})
+            except ObjectDoesNotExist:
+                messages.error(request, 'Invalid ID')
+                return render(request, 'edit-student-data.html')
+        else:
+            return render(request, 'edit-student-data.html')
 
 
 def Homepage(request):
@@ -73,19 +123,16 @@ def Homepage(request):
 
 
 class search(CreateView):
-    template_name="search-student.html"
-    form_class= UserCreationForm
-
+    template_name = "search-student.html"
+    form_class = UserCreationForm
 
 
 def search_student(request):
-    student_name=request.GET.get('name')
-    is_found=informations.objects.all().filter(name=student_name).exists()
-    inform=informations.objects.all()       
-    data={'is_found':is_found,'inform':list(inform.values())}
+    student_name = request.GET.get('name')
+    is_found = informations.objects.all().filter(name=student_name).exists()
+    inform = informations.objects.all()
+    data = {'is_found': is_found, 'inform': list(inform.values())}
     return JsonResponse(data)
-
-
 
 
 def student_department_assignment(request):
@@ -96,5 +143,3 @@ def student_department_assignment(request):
 def view_students(request):
     inform = informations.objects.all()
     return render(request, 'view-students.html', {'inform': inform})
-
-
