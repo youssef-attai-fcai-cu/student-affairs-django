@@ -3,6 +3,8 @@ let addBtn = document.getElementById("add-btn");
 // let updateBtn = document.getElementById("update-btn");
 // let deleteBtn = document.getElementById("delete-btn");
 
+numpadList = [45, 35, 40, 34, 37, 12, 39, 36, 38, 33];
+
 let inputFields = document.querySelectorAll(`input`);
 
 let selectFields = document.querySelectorAll(`select`);
@@ -58,10 +60,13 @@ function checkGpa(gpaInput) {
   }
   return true;
 }
-function onlyNumberKey(evt) {
+function phoneNumKey(evt) {
   var ASCIICode = evt.which;
+  console.log(ASCIICode);
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
     if (ASCIICode == 189) {
+      return;
+    } else if (ASCIICode >= 96 && ASCIICode <= 105) {
       return;
     }
     evt.preventDefault();
@@ -72,13 +77,15 @@ function gpaNumbers(evt) {
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 52)) {
     if (ASCIICode == 190) {
       return;
+    } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+      return;
     }
     evt.preventDefault();
   }
 }
 
 gpaInput.addEventListener("keydown", gpaNumbers);
-phoneInput.addEventListener("keydown", onlyNumberKey);
+phoneInput.addEventListener("keydown", phoneNumKey);
 // generalBtn.addEventListener("click", validateFields);
 addBtn.addEventListener("click", successfulAdd);
 
@@ -107,6 +114,8 @@ let inputName = document.querySelector(`input[name="name"]`);
 function onlyLetterKey(evt) {
   let ASCIICode = evt.which;
   if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+  } else if (ASCIICode >= 96 && ASCIICode <= 105) {
     evt.preventDefault();
   }
 }

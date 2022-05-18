@@ -69,7 +69,7 @@ def edit_student_data(request):
     if request.method == 'POST':
         action = request.POST['action']
         studentID = request.POST.get('studentID')
-        if action == 'delete':  # deletos
+        if action == 'delete':  # delete a student
             try:
                 row = informations.objects.get(studID=studentID)
                 row.delete()
@@ -77,7 +77,7 @@ def edit_student_data(request):
             except ObjectDoesNotExist:
                 messages.error(request, 'Delete failed')
             return redirect("edit-student-data.html")
-        else:
+        else:                   # update student info
             studentName = request.POST['name']
             studentGpa = request.POST['gpa']
             studentBirth = request.POST['date']
@@ -103,7 +103,7 @@ def edit_student_data(request):
                 messages.error(request, 'Edit failed')
             return redirect("edit-student-data.html?studID="+studentID)
 
-    elif request.method == 'GET':
+    elif request.method == 'GET':   # get student info
         studentID = request.GET.get('studID')
         if studentID is not None:
             try:
