@@ -58,6 +58,7 @@ def add_student(request):
                                                      department=studentDepartment, mobile=studentPhone, email=studentEmail)
             newStudent.save()
             messages.info(request, 'Student added successfully')
+            messages.info(request, 'Student ID is ' + str(studentID))
             return redirect('add-student.html')
             # return render(request, 'Homepage.html')
     else:
