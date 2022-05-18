@@ -20,6 +20,39 @@
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 2rem;
 }
+.fetch-tooltip{
+    font-size: small;
+}
+
+.studentID {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.studentID .fetch-tooltip {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 5px 0;
+
+    
+    position: absolute;
+    transform: translateY(-70%);
+    z-index: 1;
+    
+}
+
+.studentID:hover .fetch-tooltip {
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+    transition-duration: 0.5s;
+}
 
 .big-container {
 
