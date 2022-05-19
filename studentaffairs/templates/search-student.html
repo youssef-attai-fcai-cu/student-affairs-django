@@ -88,9 +88,9 @@
     <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
     <script>
       //----------------------------------------------------Ajax-----------------------------------------------------------------
-      var temp, temp2, temp3;
-      var list = document.getElementById("display_table");
+      var temp, temp2, temp3,txt2;
       document.getElementById("row1").style.display = "none";
+      document.getElementById("SS-tbody").style.display = "none";
       $("#name-entered").change(function (e) {
         e.preventDefault();
         var name = $(this).val();
@@ -101,26 +101,25 @@
           },
           dataType: "json",
           success: function (data) {
-            while (list.hasChildNodes()) {
-              list.removeChild(list.firstChild);
-            }
+            
             if (data.is_found) {
+              $("#SS-tbody").empty();
               document.getElementById("row1").style.display = "table-row";
-              document.getElementById("display_table").style.display =
-                "table-row";
+              document.getElementById("SS-tbody").style.display = "table-row-group";
               for (var i in data.inform) {
                 if (data.inform[i].name == name.toLowerCase()) {
                   temp = "<td>" + data.inform[i].name + "</td>";
-                  $("#display_table").append(temp);
                   temp2 = "<td>" + data.inform[i].studID + "</td>";
-                  $("#display_table").append(temp2);
                   temp3 = "<td>" + data.inform[i].date + "</td>";
-                  $("#display_table").append(temp3);
+                  txt2 = $("<tr></tr>").append(temp,temp2,temp3);
+                  $("#SS-tbody").append(txt2);
+
+
                 }
               }
             } else {
               document.getElementById("row1").style.display = "none";
-              document.getElementById("display_table").style.display = "none";
+              document.getElementById("SS-tbody").style.display = "none";
               if(name=="")
               {
 
