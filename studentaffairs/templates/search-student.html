@@ -62,7 +62,7 @@
         placeholder="Search Student"
       />
       <span class="show-names"
-        >try names like: mohamed,sherif,ahmed mohamed</span
+        >try names like: mohamed,sherif,ahmed mohamed(only active students will appear)</span
       >
       <button type="button" class="search-btn" onclick="validation()">
         <p id="s">Search</p>
@@ -70,7 +70,7 @@
     </form>
 
     <div id="show-table">
-      <table class="content-table">
+      <table class="content-table" id="table-body">
         <thead>
           <tr id="row1">
             <th>Name</th>
@@ -88,7 +88,7 @@
     <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
     <script>
       //----------------------------------------------------Ajax-----------------------------------------------------------------
-      var temp, temp2, temp3,txt2;
+      var temp, temp2, temp3, txt2;
       document.getElementById("row1").style.display = "none";
       document.getElementById("SS-tbody").style.display = "none";
       $("#name-entered").change(function (e) {
@@ -101,32 +101,37 @@
           },
           dataType: "json",
           success: function (data) {
-            
             if (data.is_found) {
               $("#SS-tbody").empty();
-              document.getElementById("row1").style.display = "table-row";
-              document.getElementById("SS-tbody").style.display = "table-row-group";
+              document.getElementById("row1").style.display = "none";
+              document.getElementById("SS-tbody").style.display =
+                "table-row-group";
               for (var i in data.inform) {
-                if (data.inform[i].name == name.toLowerCase()) {
+                if (
+                  data.inform[i].name == name.toLowerCase() &&
+                  data.inform[i].status.toLowerCase() == "active"
+                ) {
+                  document.getElementById("row1").style.display = "table-row";
                   temp = "<td>" + data.inform[i].name + "</td>";
                   temp2 = "<td>" + data.inform[i].studID + "</td>";
                   temp3 = "<td>" + data.inform[i].date + "</td>";
-                  txt2 = $("<tr></tr>").append(temp,temp2,temp3);
+                  txt2 = $("<tr></tr>");
+                  txt2.append(temp, temp2, temp3);
                   $("#SS-tbody").append(txt2);
-
-
-                }
+                  } 
               }
+
+              document
+                .getElementById("table-body")
+                .addEventListener("click", function () {
+                  window.location.replace("student-department-assignment.html");
+                });
             } else {
               document.getElementById("row1").style.display = "none";
               document.getElementById("SS-tbody").style.display = "none";
-              if(name=="")
-              {
-
-              }
-              else
-              {
-                alert("This student does not exist")
+              if (name == "") {
+              } else {
+                alert("This student does not exist");
               }
             }
           },
