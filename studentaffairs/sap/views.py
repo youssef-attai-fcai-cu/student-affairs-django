@@ -18,6 +18,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from django.core.exceptions import ObjectDoesNotExist
 
+
 # import pyautogui as pag
 # Create your views here.
 
@@ -144,3 +145,5 @@ def student_department_assignment(request):
 def view_students(request):
     inform = informations.objects.all()
     return render(request, 'view-students.html', {'inform': inform})
+
+

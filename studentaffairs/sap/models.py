@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class informations(models.Model):
     # if bad thing happend change data from the migrations
     name = models.CharField(max_length=500, default='')
@@ -17,3 +16,4 @@ class informations(models.Model):
     email = models.CharField(max_length=500, default='')
     mobile = models.CharField(max_length=500, default='')
     status = models.CharField(max_length=500, default='')
+
