@@ -54,7 +54,7 @@ def add_student(request):
                 else:
                     break
 
-            newStudent = informations.objects.create(name=studentName, studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
+            newStudent = informations.objects.create(name=studentName.lower(), studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
                                                      department=studentDepartment, mobile=studentPhone, email=studentEmail)
             newStudent.save()
             messages.info(request, 'Student added successfully')
@@ -89,7 +89,7 @@ def edit_student_data(request):
             studentStatus = request.POST['status']
             try:
                 row = informations.objects.get(studID=studentID)
-                row.name = studentName
+                row.name = studentName.lower()
                 row.gpa = studentGpa
                 row.date = studentBirth
                 row.gender = studentGender
