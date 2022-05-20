@@ -18,6 +18,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from django.core.exceptions import ObjectDoesNotExist
 
+
 # import pyautogui as pag
 # Create your views here.
 
@@ -54,7 +55,7 @@ def add_student(request):
                 else:
                     break
 
-            newStudent = informations.objects.create(name=studentName, studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
+            newStudent = informations.objects.create(name=studentName.lower(), studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
                                                      department=studentDepartment, mobile=studentPhone, email=studentEmail)
             newStudent.save()
             messages.info(request, 'Student added successfully')
@@ -89,7 +90,7 @@ def edit_student_data(request):
             studentStatus = request.POST['status']
             try:
                 row = informations.objects.get(studID=studentID)
-                row.name = studentName
+                row.name = studentName.lower()
                 row.gpa = studentGpa
                 row.date = studentBirth
                 row.gender = studentGender
@@ -144,3 +145,5 @@ def student_department_assignment(request):
 def view_students(request):
     inform = informations.objects.all()
     return render(request, 'view-students.html', {'inform': inform})
+
+
