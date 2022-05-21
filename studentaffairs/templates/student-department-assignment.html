@@ -58,10 +58,13 @@
         <h1 class="h1">Assign Department</h1>
       </div>
 
-      <div class="field-container">
+      <div class="h3">
         {% for message in messages %}
-        <h3 class="header3">{{message}}</h3>
+        <h3>{{message}}</h3>
         {% endfor %}
+      </div>
+
+      <div class="field-container">
         <form
           id="optionsForm"
           action="{% url 'student-department-assignment' %}"
@@ -151,7 +154,7 @@
                   <label for="DS"><b>Decision Support</b></label>
                 </div>
               </div>
-              <!-- value is empty so that it can be falsy (undefined) -->
+              <!-- value is empty so that it can be false (undefined) -->
               <div class="selected" id="selected-dept" value="">
                 <b>Choose Department</b>
               </div>

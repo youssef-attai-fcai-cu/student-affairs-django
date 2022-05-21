@@ -2,9 +2,9 @@ function isEmpty() {
   alert("Please fill out the required fields!");
 }
 
-function assign_success() {
-  alert("Department Assigned Successfully!");
-}
+// function assign_success() {
+//   alert("Department Assigned Successfully!");
+// }
 
 function dept_confirm() {
   confirm("Are you sure you want to assign this department?");
@@ -33,7 +33,7 @@ document.getElementById("assign-btn").onclick = function () {
 
     isEmpty();
   } else {
-    alert(selectedDept);
+    // alert(selectedDept);
 
     if (dept_confirm()) {
       assign_success();
@@ -45,7 +45,7 @@ document.getElementById("assign-btn").onclick = function () {
 
 let idEntered = document.querySelector(`input[id="student-id"]`);
 
-// special input for id (only numbers)
+// special input for id (only numbers allowed)
 function onlyNumberKey(evt) {
   var ASCIICode = evt.which;
   console.log(ASCIICode);
@@ -61,9 +61,13 @@ idEntered.addEventListener("keydown", onlyNumberKey);
 
 let nameEntered = document.querySelector(`input[id="student-name"]`);
 
+// special input for name (only letters allowed)
 function onlyLetterKey(evt) {
   let ASCIICode = evt.which;
   if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+  }
+  else if (ASCIICode >= 96 && ASCIICode <= 105) {
     evt.preventDefault();
   }
 }

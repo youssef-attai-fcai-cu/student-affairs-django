@@ -159,7 +159,7 @@ def student_department_assignment(request):
                 messages.info(request, 'Department Assigned Successfully!')
                 return redirect("student-department-assignment.html")
         except ObjectDoesNotExist:
-            messages.error(request, 'Invalid ID or name')
+            messages.error(request, 'Invalid ID or Name')
             return redirect("student-department-assignment.html")
 
     else:

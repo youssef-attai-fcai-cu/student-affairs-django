@@ -13,16 +13,22 @@
     border-radius: 2rem;
 }
 
+.h3 {
+    border: 2px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.192);
+    border-radius: 2rem;
+}
+
 .big-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2rem;
-
 }
 
 .field-container {
-    padding: 3rem 3rem 10px 4rem;    
+    padding: 2.5rem 3rem 10px 4rem;
     background-color: rgba(218, 95, 64, 0.9);
     border-radius: 3rem;
     transition-duration: 0.5s;
@@ -31,29 +37,28 @@
 .field-container:hover {
     transition-duration: 0.5s;
     background-color: #da5f40;
-    
 }
 
-input[type=text]{
-    width:100%;
+input[type=text] {
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.66);
-    border:2px solid #aaa;
-    border-radius:2rem;
-    margin:8px 0;
+    border: 2px solid #aaa;
+    border-radius: 2rem;
+    margin: 8px 0;
     margin-bottom: 20px;
-    outline:none;
-    padding:8px;
-    box-sizing:border-box;
-    transition:.3s;
-    -webkit-border-radius:2rem;
-    -moz-border-radius:2rem;
-    -ms-border-radius:2rem;
-    -o-border-radius:2rem;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
 }
 
-input[type=text]:focus{
-    border-color:dodgerBlue;
-    box-shadow:0 0 8px 0 dodgerBlue;
+input[type=text]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
 input[type=text]:hover {
