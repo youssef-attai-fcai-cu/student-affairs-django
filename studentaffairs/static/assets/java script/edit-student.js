@@ -81,7 +81,7 @@ function checkGpa(gpaInput) {
   if (gpaInput.value < 0 || gpaInput.value > 4) {
     alert("GPA values between 0 and 4 only");
     return false;
-  } 
+  }
   return true;
 }
 // special input for phone number ("-" is allowed)
@@ -102,9 +102,7 @@ function onlyNumberKey(evt) {
   var ASCIICode = evt.which;
   console.log(ASCIICode);
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-    if (ASCIICode == 189) {
-      return;
-    } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+    if (ASCIICode >= 96 && ASCIICode <= 105) {
       return;
     }
     evt.preventDefault();

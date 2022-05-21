@@ -45,10 +45,12 @@ document.getElementById("assign-btn").onclick = function () {
 
 let idEntered = document.querySelector(`input[id="student-id"]`);
 
+// special input for id (only numbers)
 function onlyNumberKey(evt) {
   var ASCIICode = evt.which;
+  console.log(ASCIICode);
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-    if (ASCIICode == 189) {
+    if (ASCIICode >= 96 && ASCIICode <= 105) {
       return;
     }
     evt.preventDefault();
