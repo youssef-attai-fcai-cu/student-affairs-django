@@ -13,13 +13,5 @@ urlpatterns = [
     path('student-department-assignment.html',
          views.student_department_assignment, name='student-department-assignment'),
     path('view-students.html', views.view_students, name='view-students'),
-    path('search/index.html', views.index, name='index'),
-    path('search/add-student.html', views.add_student, name='search_add'),
-    path('search/edit-student-data.html',
-         views.edit_student_data, name='search_edit'),
-    path('search/Homepage.html', views.Homepage, name="Homepage"),
-    path('search/student-department-assignment.html',
-         views.student_department_assignment, name='student-department-assignment'),
-    path('search/view-students.html', views.view_students, name='view-students'),
 
 ]
