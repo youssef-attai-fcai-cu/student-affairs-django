@@ -2,10 +2,6 @@ function isEmpty() {
   alert("Please fill out the required fields!");
 }
 
-// function assign_success() {
-//   alert("Department Assigned Successfully!");
-// }
-
 function dept_confirm() {
   confirm("Are you sure you want to assign this department?");
   return true;
@@ -35,10 +31,8 @@ document.getElementById("assign-btn").onclick = function () {
   } else {
     // alert(selectedDept);
 
-    if (dept_confirm()) {
-      assign_success();
-    }
-
+    dept_confirm()
+    
     return;
   }
 };
