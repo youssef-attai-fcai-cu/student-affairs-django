@@ -139,11 +139,33 @@ def search_student(request):
 
 def student_department_assignment(request):
     inform = informations.objects.all()
-    return render(request, 'student-department-assignment.html', {'inform': inform})
+
+    if request.method == 'POST':
+        studentID = request.POST['studentID']
+        studentName = request.POST['name']
+        studentDepartment = request.POST['selected_department']
+        try:
+
+            row = informations.objects.get(studID=studentID)
+            if studentName != row.name:
+                raise ObjectDoesNotExist
+            if row.level == "lvl1" or row.level == "lvl2":
+                messages.error(
+                    request, 'Cannot assign department to students lower than level 3')
+                return redirect("student-department-assignment.html")
+            else:
+                row.department = studentDepartment
+                row.save()
+                messages.info(request, 'Department Assigned Successfully!')
+                return redirect("student-department-assignment.html")
+        except ObjectDoesNotExist:
+            messages.error(request, 'Invalid ID or name')
+            return redirect("student-department-assignment.html")
+
+    else:
+        return render(request, 'student-department-assignment.html', {'inform': inform})
 
 
 def view_students(request):
     inform = informations.objects.all()
     return render(request, 'view-students.html', {'inform': inform})
-
-

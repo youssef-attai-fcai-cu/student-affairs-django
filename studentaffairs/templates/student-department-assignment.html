@@ -6,9 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'assets/CSS/styles.css'%}" />
-    <link rel="stylesheet" href="{% static 'assets/CSS/Assign-Department.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/CSS/Assign-Department.css'%}"
+    />
     <link rel="stylesheet" href="{% static 'assets/CSS/Drop-Down.css'%}" />
-    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'assets/images/Logo-FCAI.jpg'%}"
+    />
     <title>Assign Department</title>
   </head>
   <body id="assign-dept-body">
@@ -21,16 +28,23 @@
           <a href="view-students.html" name="view-students"> View students </a>
         </li>
         <li>
-          <a href="edit-student-data.html" name="edit-student-data"> Edit a student </a>
+          <a href="edit-student-data.html" name="edit-student-data">
+            Edit a student
+          </a>
         </li>
         <li>
           <a href="add-student.html" name="add-student"> Add a new student </a>
         </li>
         <li>
-          <a href="search-student.html" name="search-student"> Search for a student </a>
+          <a href="search-student.html" name="search-student">
+            Search for a student
+          </a>
         </li>
         <li>
-          <a href="student-department-assignment.html" name="student-department-assignment">
+          <a
+            href="student-department-assignment.html"
+            name="student-department-assignment"
+          >
             Student department assignment
           </a>
         </li>
@@ -45,16 +59,24 @@
       </div>
 
       <div class="field-container">
-        <form id="optionsForm">
+        {% for message in messages %}
+        <h3 class="header3">{{message}}</h3>
+        {% endfor %}
+        <form
+          id="optionsForm"
+          action="{% url 'student-department-assignment' %}"
+          method="post"
+        >
+          {% csrf_token %}
           <div class="ID">
             <label><b>Student ID</b></label>
             <input
               type="text"
-              name=""
+              name="studentID"
               id="student-id"
               placeholder="Enter ID"
               required
-              />
+            />
           </div>
 
           <div class="Name">
@@ -64,12 +86,14 @@
               id="student-name"
               placeholder="Enter a name"
               required
-              />
+              name="name"
+            />
           </div>
 
           <div class="select-box" style="margin-top: 1rem">
-            <label style="margin-top: 1rem; margin-right: 1rem"><b>Choose
-                Department</b></label>
+            <label style="margin-top: 1rem; margin-right: 1rem"
+              ><b>Choose Department</b></label
+            >
             <div class="select-box-container">
               <div class="options-container">
                 <div class="option">
@@ -79,7 +103,7 @@
                     id="CS"
                     name="dept_choice"
                     value="CS"
-                    />
+                  />
                   <label for="CS"><b>Computer Science</b></label>
                 </div>
 
@@ -90,7 +114,7 @@
                     id="AI"
                     name="dept_choice"
                     value="AI"
-                    />
+                  />
                   <label for="AI"><b>Artificial Intelligence</b></label>
                 </div>
 
@@ -101,7 +125,7 @@
                     id="IT"
                     name="dept_choice"
                     value="IT"
-                    />
+                  />
                   <label for="IT"><b>Information Technology</b></label>
                 </div>
 
@@ -112,7 +136,7 @@
                     id="IS"
                     name="dept_choice"
                     value="IS"
-                    />
+                  />
                   <label for="IS"><b>Information Systems</b></label>
                 </div>
 
@@ -123,7 +147,7 @@
                     id="DS"
                     name="dept_choice"
                     value="DS"
-                    />
+                  />
                   <label for="DS"><b>Decision Support</b></label>
                 </div>
               </div>
@@ -131,6 +155,11 @@
               <div class="selected" id="selected-dept" value="">
                 <b>Choose Department</b>
               </div>
+              <input
+                type="hidden"
+                id="selected-dept-value"
+                name="selected_department"
+              />
             </div>
           </div>
 
