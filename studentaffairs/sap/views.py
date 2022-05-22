@@ -41,27 +41,36 @@ def add_student(request):
         studentEmail = request.POST['email']
         studentStatus = request.POST['status']
 
-        if informations.objects.all().filter(mobile=studentPhone):
-            messages.info(request, 'Phone number already used')
+        if len(studentPhone) < 11:
+            messages.info(request, 'Phone number should be 11 characters')
             return redirect('add-student.html')
-        elif informations.objects.all().filter(email=studentEmail):
-            messages.info(request, 'Email already used')
-            return redirect('add-student.html')
-        else:
-            while(informations.objects.all().filter(studID=studentID)):
-                studentID = 20200000 + randint(100, 999)
-                if informations.objects.all().filter(studID=studentID):
-                    continue
-                else:
-                    break
 
-            newStudent = informations.objects.create(name=studentName.lower(), studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
-                                                     department=studentDepartment, mobile=studentPhone, email=studentEmail)
-            newStudent.save()
-            messages.info(request, 'Student added successfully')
-            messages.info(request, 'Student ID is ' + str(studentID))
+        if "@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail):
+
+            if informations.objects.all().filter(mobile=studentPhone):
+                messages.info(request, 'Phone number already used')
+                return redirect('add-student.html')
+            elif informations.objects.all().filter(email=studentEmail):
+                messages.info(request, 'Email already used')
+                return redirect('add-student.html')
+            else:
+                while(informations.objects.all().filter(studID=studentID)):
+                    studentID = 20200000 + randint(100, 999)
+                    if informations.objects.all().filter(studID=studentID):
+                        continue
+                    else:
+                        break
+
+                newStudent = informations.objects.create(name=studentName.lower(), studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
+                                                         department=studentDepartment, mobile=studentPhone, email=studentEmail)
+                newStudent.save()
+                messages.info(request, 'Student added successfully')
+                messages.info(request, 'Student ID is ' + str(studentID))
+                return redirect('add-student.html')
+                # return render(request, 'Homepage.html')
+        else:
+            messages.info(request, 'Invalid E-mail address')
             return redirect('add-student.html')
-            # return render(request, 'Homepage.html')
     else:
         return render(request, 'add-student.html')
 

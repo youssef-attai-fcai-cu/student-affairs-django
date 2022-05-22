@@ -63,7 +63,11 @@
       {% for message in messages %}
       <h3 class="header3">{{message}}</h3>
       {% endfor %}
-      <form action="{% url 'add-student' %}" method="post">
+      <form
+        id="add_student_form"
+        action="{% url 'add-student' %}"
+        method="post"
+      >
         {% csrf_token %}
         <div class="field-container">
           <div class="student">
@@ -148,7 +152,12 @@
 
           <div class="email">
             <label><b>Student E-mail</b></label>
-            <input type="email" name="email" placeholder="name@example.com" />
+            <input
+              type="email"
+              name="email"
+              placeholder="name@example.com"
+              required
+            />
           </div>
 
           <div class="phone">
@@ -157,8 +166,9 @@
               type="tel"
               id="phone"
               name="mobile"
-              placeholder="02-xxxxxxxx"
-              pattern="[0-9]{2}-[0-9]{8}"
+              placeholder="xxxxxxxxxxx"
+              minlength="11"
+              pattern="[0-9]{11}"
               required
               autocomplete="off"
             />
@@ -173,6 +183,16 @@
       </form>
       <!-- END OF FORM -->
     </div>
+    <!-- to allow jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // to disallow cut, copy or paste functionality
+      $(document).ready(function () {
+        $("body").bind("cut copy paste", function (e) {
+          e.preventDefault();
+        });
+      });
+    </script>
     <script src="{% static 'assets/java script/add-student.js'%}"></script>
   </body>
 </html>

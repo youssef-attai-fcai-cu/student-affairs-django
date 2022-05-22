@@ -1,11 +1,12 @@
-// let generalBtn = document.querySelector(".btn-add");
-let addBtn = document.getElementById("add-btn");
-// let updateBtn = document.getElementById("update-btn");
-// let deleteBtn = document.getElementById("delete-btn");
+let validKeyCodes = [8, 9, 37, 38, 39, 40, 46];
 
-numpadList = [45, 35, 40, 34, 37, 12, 39, 36, 38, 33];
+let addBtn = document.getElementById("add-btn");
+
+let addStudent = document.getElementById("add_student_form");
 
 let inputFields = document.querySelectorAll(`input`);
+
+let phoneFields = document.querySelectorAll(`input[type='tel']`);
 
 let selectFields = document.querySelectorAll(`select`);
 
@@ -15,9 +16,14 @@ let gpaInput = document.querySelector(`input[name="gpa"]`);
 
 let phoneInput = document.getElementById("phone");
 
-function successfulAdd() {
+function successfulAdd(e) {
   if (validateFields()) {
-    console.log("added");
+    if (confirm("Are you sure you want to add this student?")) {
+      addStudent.submit();
+    } else {
+      e.preventDefault();
+      // alert("Request cancelled");
+    }
   }
 }
 
@@ -45,6 +51,7 @@ function checkEmptyFields() {
       return false;
     }
   }
+
   if (dateFields.value == "mm/dd/yyyy") {
     alert("Please fill out the required forms");
     return false;
@@ -53,27 +60,42 @@ function checkEmptyFields() {
 }
 
 function checkGpa(gpaInput) {
-  console.log(gpaInput.value);
   if (gpaInput.value < 0 || gpaInput.value > 4) {
     alert("GPA values between 0 and 4 only");
     return false;
   }
   return true;
 }
+
 function phoneNumKey(evt) {
   var ASCIICode = evt.which;
-  console.log(ASCIICode);
-  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-    if (ASCIICode == 189) {
+  for (let i = 0; i < validKeyCodes.length; i++) {
+    if (ASCIICode == validKeyCodes[i]) {
       return;
-    } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+    }
+  }
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+    // if (ASCIICode == 189) {
+    //   return;
+    // } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+    //   return;
+    // }
+    if (ASCIICode >= 96 && ASCIICode <= 105) {
       return;
     }
     evt.preventDefault();
   }
 }
+
+//force number input but make an exception for "."
+
 function gpaNumbers(evt) {
   let ASCIICode = evt.which;
+  for (let i = 0; i < validKeyCodes.length; i++) {
+    if (ASCIICode == validKeyCodes[i]) {
+      return;
+    }
+  }
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 52)) {
     if (ASCIICode == 190) {
       return;
@@ -84,15 +106,37 @@ function gpaNumbers(evt) {
   }
 }
 
-gpaInput.addEventListener("keydown", gpaNumbers);
-phoneInput.addEventListener("keydown", phoneNumKey);
-// generalBtn.addEventListener("click", validateFields);
-addBtn.addEventListener("click", successfulAdd);
+//force letter only input
+
+let inputName = document.querySelector(`input[name="name"]`);
+
+function onlyLetterKey(evt) {
+  let ASCIICode = evt.which;
+  for (let i = 0; i < validKeyCodes.length; i++) {
+    if (ASCIICode == validKeyCodes[i]) {
+      return;
+    }
+  }
+  if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
+    evt.preventDefault();
+  } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+    evt.preventDefault();
+  }
+}
+
+inputName.addEventListener("keydown", onlyLetterKey); // force letter input for name
+
+gpaInput.addEventListener("keydown", gpaNumbers); // force number input for gpa
+
+phoneInput.addEventListener("keydown", phoneNumKey); // force number input for phone field
+
+addBtn.addEventListener("click", successfulAdd); // validate fields, send data to server
 
 let selectLevel = document.getElementById("level");
 let selectDepartment = document.getElementById("department");
 let departmentSelectOptions = document.querySelectorAll(`#department option`);
 
+//change display of departments depending on selected level
 selectLevel.addEventListener("change", function (ev) {
   let value = selectLevel.value;
   selectDepartment.value = "Empty";
@@ -108,16 +152,3 @@ selectLevel.addEventListener("change", function (ev) {
     });
   }
 });
-
-let inputName = document.querySelector(`input[name="name"]`);
-
-function onlyLetterKey(evt) {
-  let ASCIICode = evt.which;
-  if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
-    evt.preventDefault();
-  } else if (ASCIICode >= 96 && ASCIICode <= 105) {
-    evt.preventDefault();
-  }
-}
-
-inputName.addEventListener("keydown", onlyLetterKey);
