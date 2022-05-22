@@ -142,7 +142,7 @@ selectLevel.addEventListener("change", function (ev) {
   selectDepartment.value = "Empty";
   if (value === "lvl1" || value === "lvl2") {
     departmentSelectOptions.forEach(function (option) {
-      if (option.value !== "Gen" && option.value !== "Empty") {
+      if (option.value !== "General" && option.value !== "Empty") {
         option.style.display = "none";
       }
     });
