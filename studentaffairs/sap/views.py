@@ -45,7 +45,7 @@ def add_student(request):
             messages.info(request, 'Phone number should be 11 characters')
             return redirect('add-student.html')
 
-        if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail)):
+        if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail or "stud.cu.edu.eg" in studentEmail)):
             messages.info(request, 'Invalid E-mail address')
             return redirect('add-student.html')
         else:
@@ -92,7 +92,7 @@ def edit_student_data(request):
         if len(studentPhone) < 11 or len(studentPhone) > 11:  # validate phone and email fields
             messages.info(request, 'Phone number should be 11 characters')
             return redirect("edit-student-data.html?studID="+studentID)
-        if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail)):
+        if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail or "stud.cu.edu.eg" in studentEmail)):
             messages.info(request, 'Invalid email address')
             return redirect("edit-student-data.html?studID="+studentID)
 
@@ -183,7 +183,7 @@ def student_department_assignment(request):
         try:
 
             row = informations.objects.get(studID=studentID)
-            if studentName != row.name:
+            if studentName.lower() != row.name:
                 raise ObjectDoesNotExist
             if row.level == "lvl1" or row.level == "lvl2":
                 messages.error(

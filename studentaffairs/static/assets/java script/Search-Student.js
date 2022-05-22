@@ -1,5 +1,4 @@
 
-
 function alert_empty() {
   alert("Please enter a name")
 }
