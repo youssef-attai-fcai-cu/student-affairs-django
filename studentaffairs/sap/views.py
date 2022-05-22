@@ -177,4 +177,18 @@ def student_department_assignment(request):
 
 def view_students(request):
     inform = informations.objects.all()
-    return render(request, 'view-students.html', {'inform': inform})
+    
+        
+    if(request.method=='POST'):   
+        
+        studentStatus=request.POST['status_In']
+        student_ID=request.POST['studentViewID']
+        row = informations.objects.get(studID=student_ID)
+        row.status=studentStatus
+        row.save()
+        messages.info(request,"Student with ID: "+str(student_ID)+" changed status to "+str(studentStatus))
+
+    return render(request, 'view-students.html', {'inform': inform})    
+        
+    
+

@@ -145,11 +145,15 @@
         </li>
       </ul>
     </div>
-
+    <form action="{% url 'view-students' %}" method="post">
+      {%csrf_token%}
     <table class="contentTable">
       <caption>
         view students
       </caption>
+      {%for message in messages %}
+      <h4 style="text-align: center; color: white;" >{{message}}</h4>
+      {%endfor%}
       <thead>
         <tr>
           <th class="col1">ID</th>
@@ -164,9 +168,37 @@
           <th class="col10">active status</th>
         </tr>
       </thead>
-      <tbody id="content"></tbody>
+      <tbody id="content">
+        {% for i in inform %}
+        <tr>
+          <td class="col1">{{i.studID}}</td>
+          <td class="col2">{{i.name}}</td>
+          <td class="col3">{{i.date}}</td>
+          <td class="col4">{{i.gpa}}</td>
+          <td class="col5">{{i.gender}}</td>
+          <td class="col6">{{i.level}}</td>
+          <td class="col7">{{i.department}}</td>
+          <td class="col8">{{i.email}}</td>
+          <td class="col9">{{i.mobile}}</td>
+          <td class="col10" name="status">{{i.status}} </td>
+          <td class="col11"><button type="submit" class="status" name="changeStatus"  onclick="change(this.id)">change status</button></td>
+          
+        </tr>
+        {% endfor %}
+        <input type="hidden" class="input" id="studentId" name="studentViewID">
+        <input type="hidden" class="input" id="selected_status" name="status_In">
+    </form>
+
+      </tbody>
     </table>
-    <script src="{% static 'assets/java script/database.js'%}"></script>
+    
     <script src="{% static 'assets/java script/view-students.js'%}"></script>
+    <script>
+      var x=document.getElementsByClassName("status");
+      for(var i=0;i<x.length;i++)
+      {
+        x[i].setAttribute("id",`status${i + 1}`);
+      }
+    </script>
   </body>
 </html>

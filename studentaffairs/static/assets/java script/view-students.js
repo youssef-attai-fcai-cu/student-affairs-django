@@ -5,43 +5,25 @@ checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
   else checkList.classList.add("visible");
 };
 
-function displayStudent(student) {
-  var row = document.createElement("tr");
-  for (var i = 0; i < 10; i++) {
-    var data = document.createElement("td");
-    data.setAttribute("class", `col${i + 1}`);
-    data.innerHTML = student.data[i];
-    row.appendChild(data);
-    if (i == 9) {
-      data.innerText = student.data[i] ? "active" : "inactive";
-      var status = document.createElement("button");
-      status.setAttribute("class", "status");
-      status.onclick = function () {
-        if (student.data[9] == true) {
-          student.data[9] = false;
-          //data.innerText = "inactive";
-        } else {
-          student.data[9] = true;
-          //data.innerText = "active";
-        }
-        if(student.data[9]==true)
-        {
-          data.innerText="active";
-        }
-        else{
-          data.innerText="inactive";
-        }
-        //data.innerText = data.innerText == "inactive" ? "active" : "inactive";
-      };
-      status.setAttribute("name", "change status");
-      status.innerHTML = "change status";
-      data.parentNode.appendChild(status);
-      console.log(data.parentNode);
-    }
+//change ID 
+function change(id)
+{
+  var student_Id=document.getElementById(id).parentNode.parentNode.firstChild.nextSibling.innerText;
+  if(document.getElementById(id).parentNode.previousSibling.previousSibling.innerText=="Active"|| document.getElementById(id).parentNode.previousSibling.previousSibling.innerText=="active" )
+  { 
+    document.getElementById(id).parentNode.previousSibling.previousSibling.innerText="Inactive";
+    document.getElementById("selected_status").setAttribute('value','Inactive');
+    document.getElementById("studentId").setAttribute('value',student_Id);
+    
   }
-  document.getElementById("content").appendChild(row);
-}
+  else
+  {
+    document.getElementById(id).parentNode.previousSibling.previousSibling.innerText="Active";
+    document.getElementById("selected_status").setAttribute('value','Active');
+    document.getElementById("studentId").setAttribute('value',student_Id);
+  }
 
+}
 function showhide(obj, name) {
   var elements = document.getElementsByClassName(name);
   if (obj.checked == 0) {
@@ -55,6 +37,4 @@ function showhide(obj, name) {
     }
   }
 }
-for (var i = 0; i < dummyData.length; i++) {
-  displayStudent(dummyData[i]);
-}
+
