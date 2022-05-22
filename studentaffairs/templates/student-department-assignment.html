@@ -50,7 +50,7 @@
         </li>
       </ul>
     </nav>
-    
+
     <div class="big-container">
       <div>
         <h1 class="h1">Assign Department</h1>
@@ -172,7 +172,16 @@
         </form>
       </div>
     </div>
-
+    <!-- to allow jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // to disallow cut, copy or paste functionality
+      $(document).ready(function () {
+        $("body").bind("paste", function (e) {
+          e.preventDefault();
+        });
+      });
+    </script>
     <script src="{% static 'assets/java script/Drop-Down.js'%}"></script>
     <script src="{% static 'assets/java script/Assign-Department.js'%}"></script>
   </body>
