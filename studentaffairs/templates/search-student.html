@@ -112,7 +112,7 @@
                   data.inform[i].status.toLowerCase() == "active"
                 ) {
                   document.getElementById("row1").style.display = "table-row";
-                  temp = "<td>" + data.inform[i].name + "</td>";
+                  temp = "<td>" + data.inform[i].name.toLowerCase().replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase()); + "</td>";
                   temp2 = "<td>" + data.inform[i].studID + "</td>";
                   temp3 = "<td>" + data.inform[i].date + "</td>";
                   txt2 = $("<tr></tr>");
