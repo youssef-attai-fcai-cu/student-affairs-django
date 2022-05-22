@@ -24,6 +24,8 @@ let phoneInput = document.getElementById("phone");
 
 let inputID = document.querySelector(`input[name="studentID"]`);
 
+let inputName = document.querySelector(`input[name="name"]`);
+
 function fetchStudent(e) {
   e.preventDefault();
   let studentID = document.getElementById("studID").value;
@@ -167,7 +169,6 @@ function gpaNumbers(evt) {
 }
 
 // force user to only input letters
-let inputName = document.querySelector(`input[name="name"]`);
 
 function onlyLetterKey(evt) {
   let ASCIICode = evt.which;
@@ -183,16 +184,16 @@ function onlyLetterKey(evt) {
   }
 }
 
-inputName.addEventListener("keydown", onlyLetterKey);
+inputName.addEventListener("keydown", onlyLetterKey); // force letter input only
 
-gpaInput.addEventListener("keydown", gpaNumbers);
+gpaInput.addEventListener("keydown", gpaNumbers); // force number input for gpa
 
-phoneInput.addEventListener("keydown", phoneNumKey);
+phoneInput.addEventListener("keydown", phoneNumKey); // force number input for phone
 
-inputID.addEventListener("keydown", onlyNumberKey);
+inputID.addEventListener("keydown", onlyNumberKey); // force number input for ID
 
-updateBtn.addEventListener("click", successfulUpdate);
+updateBtn.addEventListener("click", successfulUpdate); // validate fields after clicking Update
 
-deleteBtn.addEventListener("click", successfulDelete);
+deleteBtn.addEventListener("click", successfulDelete); // validate fields after clicking Delete
 
-fetchBtn.addEventListener("click", fetchStudent);
+fetchBtn.addEventListener("click", fetchStudent); // display student info after clicking Fetch

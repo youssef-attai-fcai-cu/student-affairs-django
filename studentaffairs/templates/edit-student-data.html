@@ -71,7 +71,7 @@
               value="{{ inform.studID }}"
             />
             <span class="fetch-tooltip">Input ID to fetch student details</span>
-            <button class="add-btn" id="fetch-btn">Fetch</button>
+            <button class="add-btn" id="fetch-btn">Get Student Details</button>
           </div>
 
           <div class="student">
@@ -218,7 +218,7 @@
 
       // to disallow cut, copy or paste functionality
       $(document).ready(function () {
-        $("body").bind("cut copy paste", function (e) {
+        $("body").bind("paste", function (e) {
           e.preventDefault();
         });
       });
