@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/Logo-FCAI.jpg'%}" />
     <link rel="stylesheet" href="{% static 'assets/CSS/view students.css'%}" />
 
-    <title>view-students</title>
+    <title>View Students</title>
   </head>
   <body id="view-students">
     <nav>
@@ -70,7 +70,7 @@
             value="Date of birth"
             onclick="showhide(this,this.name)"
             checked
-          />Date of birth
+          />Date of Birth
         </li>
         <li>
           <input
@@ -80,7 +80,7 @@
             value="gpa"
             onclick="showhide(this,this.name)"
             checked
-          />gpa
+          />GPA
         </li>
         <li>
           <input
@@ -90,7 +90,7 @@
             value="gender"
             onclick="showhide(this,this.name)"
             checked
-          />gender
+          />Gender
         </li>
         <li>
           <input
@@ -100,7 +100,7 @@
             value="level"
             onclick="showhide(this,this.name)"
             checked
-          />level
+          />Level
         </li>
         <li>
           <input
@@ -130,7 +130,7 @@
             value="mobile number"
             onclick="showhide(this,this.name)"
             checked
-          />Mobile number
+          />Mobile Number
         </li>
         <li>
           <input
@@ -149,7 +149,7 @@
       {%csrf_token%}
     <table class="contentTable">
       <caption>
-        view students
+        View Students
       </caption>
       {%for message in messages %}
       <h4 style="text-align: center; color: white;" >{{message}}</h4>
@@ -158,14 +158,14 @@
         <tr>
           <th class="col1">ID</th>
           <th class="col2">Student name</th>
-          <th class="col3">date of birth</th>
-          <th class="col4">gpa</th>
-          <th class="col5">gender</th>
-          <th class="col6">level</th>
+          <th class="col3">Date of Birth</th>
+          <th class="col4">GPA</th>
+          <th class="col5">Gender</th>
+          <th class="col6">Level</th>
           <th class="col7">Department</th>
           <th class="col8">Email</th>
-          <th class="col9">Mobile number</th>
-          <th class="col10">active status</th>
+          <th class="col9">Mobile Number</th>
+          <th class="col10">Active Status</th>
         </tr>
       </thead>
       <tbody id="content">
