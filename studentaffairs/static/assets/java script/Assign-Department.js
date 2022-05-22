@@ -4,15 +4,10 @@ function isEmpty() {
   alert("Please fill out the required fields!");
 }
 
-function assign_success() {
-  alert("Department Assigned Successfully!");
-}
-
 function dept_confirm() {
   let confirmationVar = confirm(
     "Are you sure you want to assign this department?"
   );
-
   return confirmationVar;
 }
 
@@ -40,9 +35,7 @@ document.getElementById("assign-btn").onclick = function (e) {
       assignBtn.submit();
     } else {
       e.preventDefault();
-      // alert("Request cancelled");
     }
-
     return;
   }
 };
@@ -69,6 +62,7 @@ idEntered.addEventListener("keydown", onlyNumberKey);
 
 let nameEntered = document.querySelector(`input[id="student-name"]`);
 
+// special input for letters
 function onlyLetterKey(evt) {
   let ASCIICode = evt.which;
   for (let i = 0; i < validKeyCodes.length; i++) {
