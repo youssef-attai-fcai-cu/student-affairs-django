@@ -5,10 +5,12 @@ function isEmpty() {
 }
 
 function dept_confirm() {
+
   let confirmationVar = confirm(
     "Are you sure you want to assign this department?"
   );
   return confirmationVar;
+  
 }
 
 assignBtn = document.getElementById("optionsForm");
@@ -65,14 +67,17 @@ let nameEntered = document.querySelector(`input[id="student-name"]`);
 // special input for letters
 function onlyLetterKey(evt) {
   let ASCIICode = evt.which;
-  for (let i = 0; i < validKeyCodes.length; i++) {
+  for (let i = 0; i < validKeyCodes.length; i++) 
+  {
     if (ASCIICode == validKeyCodes[i]) {
       return;
     }
   }
+
   if ((ASCIICode >= 33 && ASCIICode <= 57) || ASCIICode == 192) {
     evt.preventDefault();
-  } else if (ASCIICode >= 96 && ASCIICode <= 105) {
+  } 
+  else if (ASCIICode >= 96 && ASCIICode <= 105) {
     evt.preventDefault();
   }
 }
