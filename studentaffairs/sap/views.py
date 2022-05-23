@@ -80,23 +80,9 @@ def add_student(request):
 def edit_student_data(request):
 
     if request.method == 'POST':  # get all field values
-        studentName = request.POST['name']
-        studentGpa = request.POST['gpa']
-        studentBirth = request.POST['date']
-        studentGender = request.POST['gender']
-        studentLevel = request.POST['level']
-        studentPhone = request.POST['mobile']
-        studentEmail = request.POST['email']
-        studentStatus = request.POST['status']
         studentID = request.POST.get('studentID')
-        if len(studentPhone) < 11 or len(studentPhone) > 11:  # validate phone and email fields
-            messages.info(request, 'Phone number should be 11 characters')
-            return redirect("edit-student-data.html?studID="+studentID)
-        if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail or "stud.cu.edu.eg" in studentEmail)):
-            messages.info(request, 'Invalid email address')
-            return redirect("edit-student-data.html?studID="+studentID)
 
-        clickAction = request.POST['action']  # check action type
+        clickAction = request.POST['actionType']  # check action type
 
         if clickAction == 'delete':  # delete a student
             try:
@@ -104,10 +90,28 @@ def edit_student_data(request):
                 row.delete()
                 messages.info(request, 'Student has been deleted')
             except ObjectDoesNotExist:
-                messages.error(request, 'Delete failed')
+                messages.error(request, 'Delete failed, invalid ID')
             return redirect("edit-student-data.html")
         else:                   # update student info
             try:
+                studentName = request.POST['name']
+                studentGpa = request.POST['gpa']
+                studentBirth = request.POST['date']
+                studentGender = request.POST['gender']
+                studentLevel = request.POST['level']
+                studentPhone = request.POST['mobile']
+                studentEmail = request.POST['email']
+                studentStatus = request.POST['status']
+
+                # validate phone and email fields
+                if len(studentPhone) < 11 or len(studentPhone) > 11:
+                    messages.info(
+                        request, 'Phone number should be 11 characters')
+                    return redirect("edit-student-data.html?studID="+studentID)
+                if not("@" in studentEmail and (".com" in studentEmail or ".org" in studentEmail or ".net" in studentEmail or "stud.cu.edu.eg" in studentEmail)):
+                    messages.info(request, 'Invalid email address')
+                    return redirect("edit-student-data.html?studID="+studentID)
+
                 row = informations.objects.get(studID=studentID)
                 if informations.objects.all().filter(mobile=studentPhone):  # check if new phone number is already used
                     if row.mobile == studentPhone:  # if it's the same as the current student's, don't do anything

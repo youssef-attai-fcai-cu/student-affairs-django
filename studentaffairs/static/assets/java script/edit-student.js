@@ -26,6 +26,8 @@ let inputID = document.querySelector(`input[name="studentID"]`);
 
 let inputName = document.querySelector(`input[name="name"]`);
 
+let checkID = document.querySelectorAll(`input[name="studentID"]`);
+
 function fetchStudent(e) {
   e.preventDefault();
   let studentID = document.getElementById("studID").value;
@@ -37,6 +39,7 @@ function fetchStudent(e) {
 }
 
 function successfulUpdate(e) {
+  document.getElementById("actionType").setAttribute("value", "update");
   if (validateFields()) {
     if (confirm("Confirm changes?")) {
       editStudent.submit();
@@ -48,7 +51,8 @@ function successfulUpdate(e) {
 }
 
 function successfulDelete(e) {
-  if (validateFields()) {
+  document.getElementById("actionType").setAttribute("value", "delete");
+  if (validateID()) {
     if (
       confirm(
         "Are you sure you want to delete this student? \nThis action cannot be undone"
@@ -60,6 +64,17 @@ function successfulDelete(e) {
       // alert("Request cancelled");
     }
   }
+}
+
+function validateID() {
+  console.log(checkID.length);
+  for (i = 0; i < checkID.length; i++) {
+    if (checkID[i].value == "") {
+      alert("Please fill out the ID form to delete a student");
+      return false;
+    }
+  }
+  return true;
 }
 
 function validateFields() {
