@@ -28,6 +28,8 @@ let inputName = document.querySelector(`input[name="name"]`);
 
 let checkID = document.querySelectorAll(`input[name="studentID"]`);
 
+let emailText = document.getElementById("email");
+
 function fetchStudent(e) {
   e.preventDefault();
   let studentID = document.getElementById("studID").value;
@@ -42,10 +44,13 @@ function successfulUpdate(e) {
   document.getElementById("actionType").setAttribute("value", "update");
   if (validateFields()) {
     if (confirm("Confirm changes?")) {
-      editStudent.submit();
+      if (ValidateEmail(emailText)) {
+        editStudent.submit();
+      } else {
+        e.preventDefault();
+      }
     } else {
       e.preventDefault();
-      // alert("Request cancelled");
     }
   }
 }
@@ -61,8 +66,17 @@ function successfulDelete(e) {
       editStudent.submit();
     } else {
       e.preventDefault();
-      // alert("Request cancelled");
     }
+  }
+}
+
+function ValidateEmail(inputText) {
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (inputText.value.match(mailformat)) {
+    return true;
+  } else {
+    alert("You have entered an invalid email address!");
+    return false;
   }
 }
 
@@ -79,9 +93,15 @@ function validateID() {
 
 function validateFields() {
   if (!checkEmptyFields()) {
+    alert("Please fill out the required forms");
     return false;
   }
   if (!checkGpa(gpaInput)) {
+    alert("GPA values between 0 and 4 only");
+    return false;
+  }
+  if (phoneInput.value.length < 11 || phoneInput.value.length > 11) {
+    alert("Phone number can only have 11 characters");
     return false;
   }
 
@@ -91,31 +111,26 @@ function validateFields() {
 function checkEmptyFields() {
   for (i = 0; i < inputFields.length; i++) {
     if (inputFields[i].value == "") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
   for (i = 0; i < emailFields.length; i++) {
     if (emailFields[i].value == "") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
   for (i = 0; i < phoneFields.length; i++) {
     if (phoneFields[i].value == "") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
 
   for (i = 0; i < selectFields.length; i++) {
     if (selectFields[i].value == "Empty") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
   if (dateFields.value == "mm/dd/yyyy") {
-    alert("Please fill out the required forms");
     return false;
   }
 
@@ -125,31 +140,11 @@ function checkEmptyFields() {
 function checkGpa(gpaInput) {
   console.log(gpaInput.value);
   if (gpaInput.value < 0 || gpaInput.value > 4) {
-    alert("GPA values between 0 and 4 only");
     return false;
   }
   return true;
 }
-// special input for phone number
-function phoneNumKey(evt) {
-  var ASCIICode = evt.which;
-  for (let i = 0; i < validKeyCodes.length; i++) {
-    if (ASCIICode == validKeyCodes[i]) {
-      return;
-    }
-  }
-  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-    // if (ASCIICode == 189) {
-    //   return;
-    // } else if (ASCIICode >= 96 && ASCIICode <= 105) {
-    //   return;
-    // }
-    if (ASCIICode >= 96 && ASCIICode <= 105) {
-      return;
-    }
-    evt.preventDefault();
-  }
-}
+
 // special input for id (only numbers)
 function onlyNumberKey(evt) {
   var ASCIICode = evt.which;
@@ -165,7 +160,7 @@ function onlyNumberKey(evt) {
     evt.preventDefault();
   }
 }
-// special input for gpa (allows ".")
+// special input for gpa (allows decimal)
 function gpaNumbers(evt) {
   var ASCIICode = evt.which;
   for (let i = 0; i < validKeyCodes.length; i++) {
@@ -203,7 +198,7 @@ inputName.addEventListener("keydown", onlyLetterKey); // force letter input only
 
 gpaInput.addEventListener("keydown", gpaNumbers); // force number input for gpa
 
-phoneInput.addEventListener("keydown", phoneNumKey); // force number input for phone
+phoneInput.addEventListener("keydown", onlyNumberKey); // force number input for phone
 
 inputID.addEventListener("keydown", onlyNumberKey); // force number input for ID
 

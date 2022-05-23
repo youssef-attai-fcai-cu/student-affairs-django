@@ -16,22 +16,43 @@ let gpaInput = document.querySelector(`input[name="gpa"]`);
 
 let phoneInput = document.getElementById("phone");
 
+let emailText = document.getElementById("email");
+
 function successfulAdd(e) {
   if (validateFields()) {
     if (confirm("Are you sure you want to add this student?")) {
-      addStudent.submit();
+      if (ValidateEmail(emailText)) {
+        addStudent.submit();
+      } else {
+        e.preventDefault();
+      }
     } else {
       e.preventDefault();
-      // alert("Request cancelled");
     }
+  }
+}
+
+function ValidateEmail(inputText) {
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (inputText.value.match(mailformat)) {
+    return true;
+  } else {
+    alert("You have entered an invalid email address!");
+    return false;
   }
 }
 
 function validateFields() {
   if (!checkEmptyFields()) {
+    alert("Please fill out the required forms");
     return false;
   }
   if (!checkGpa(gpaInput)) {
+    alert("GPA values between 0 and 4 only");
+    return false;
+  }
+  if (phoneInput.value.length < 11 || phoneInput.value.length > 11) {
+    alert("Phone number can only have 11 characters");
     return false;
   }
 
@@ -41,19 +62,16 @@ function validateFields() {
 function checkEmptyFields() {
   for (i = 0; i < inputFields.length; i++) {
     if (inputFields[i].value == "") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
   for (i = 0; i < selectFields.length; i++) {
     if (selectFields[i].value == "Empty") {
-      alert("Please fill out the required forms");
       return false;
     }
   }
 
   if (dateFields.value == "mm/dd/yyyy") {
-    alert("Please fill out the required forms");
     return false;
   }
   return true;
@@ -61,7 +79,6 @@ function checkEmptyFields() {
 
 function checkGpa(gpaInput) {
   if (gpaInput.value < 0 || gpaInput.value > 4) {
-    alert("GPA values between 0 and 4 only");
     return false;
   }
   return true;
