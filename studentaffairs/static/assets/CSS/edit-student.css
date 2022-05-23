@@ -29,6 +29,10 @@
     font-size: small;
 }
 
+.update-tooltip{
+    font-size: small;
+}
+
 .studentID {
     position: relative;
     display: inline-block;
@@ -55,6 +59,31 @@
 }
 
 .studentID:hover .fetch-tooltip {
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+.studentID .update-tooltip {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 5px 0;
+
+
+    position: absolute;
+    transform: translate(-150%,-75%);
+
+    z-index: 1;
+
+}
+
+.studentID:hover .update-tooltip {
     transition-timing-function: ease-in-out;
     opacity: 1;
     transition-duration: 0.5s;

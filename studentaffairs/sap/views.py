@@ -110,6 +110,8 @@ def edit_student_data(request):
                         messages.info(request, 'Email already used')
                         return redirect("edit-student-data.html?studID="+studentID)
 
+                if studentLevel == "lvl1" or studentLevel == "lvl2":
+                    row.department = "General"
                 # update student info in the database with the current input
                 row.name = studentName.lower()
                 row.gpa = studentGpa
@@ -166,13 +168,16 @@ def student_department_assignment(request):
     if request.method == 'POST':
         studentID = request.POST['studentID']
         studentName = request.POST['name']
-        studentDepartment = request.POST['selected_department']     # line 183 , 184 , 185 gets the user's input
+        # line 183 , 184 , 185 gets the user's input
+        studentDepartment = request.POST['selected_department']
         try:
-            
-            row = informations.objects.get(studID=studentID)        # retrieves the data from DB with id entered by the user
-            if studentName.lower() != row.name:     # if not found , display error message 
+
+            # retrieves the data from DB with id entered by the user
+            row = informations.objects.get(studID=studentID)
+            if studentName.lower() != row.name:     # if not found , display error message
                 raise ObjectDoesNotExist
-            if row.level == "lvl1" or row.level == "lvl2":     # if the level of the student id is below level 3 , display error message 
+            # if the level of the student id is below level 3 , display error message
+            if row.level == "lvl1" or row.level == "lvl2":
                 messages.error(
                     request, 'Cannot assign department to students lower than level 3')
                 return redirect("student-department-assignment.html")
@@ -181,7 +186,7 @@ def student_department_assignment(request):
                 row.save()
                 messages.info(request, 'Department Assigned Successfully!')
                 return redirect("student-department-assignment.html")
-            
+
         except ObjectDoesNotExist:
             messages.error(request, 'Invalid ID or Name')
             return redirect("student-department-assignment.html")
