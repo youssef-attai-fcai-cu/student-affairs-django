@@ -11,7 +11,7 @@ optionsList.forEach((o) => {
   o.addEventListener("click", () => {
     selected.innerHTML = o.querySelector("label").innerHTML;
 
-    //put the actual value (cs,it,etc) inside "selected"
+    // put the actual value (CS , IT , AI , IS , DS) inside "selected"
     selected.setAttribute("value", o.querySelector("input").value);
 
     // put the actual value inside the hidden input value so it can be read by the server

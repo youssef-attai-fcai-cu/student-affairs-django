@@ -183,21 +183,22 @@ def student_department_assignment(request):
     if request.method == 'POST':
         studentID = request.POST['studentID']
         studentName = request.POST['name']
-        studentDepartment = request.POST['selected_department']
+        studentDepartment = request.POST['selected_department']     # line 183 , 184 , 185 gets the user's input
         try:
-
-            row = informations.objects.get(studID=studentID)
-            if studentName.lower() != row.name:
+            
+            row = informations.objects.get(studID=studentID)        # retrieves the data from DB with id entered by the user
+            if studentName.lower() != row.name:     # if not found , display error message 
                 raise ObjectDoesNotExist
-            if row.level == "lvl1" or row.level == "lvl2":
+            if row.level == "lvl1" or row.level == "lvl2":     # if the level of the student id is below level 3 , display error message 
                 messages.error(
                     request, 'Cannot assign department to students lower than level 3')
                 return redirect("student-department-assignment.html")
-            else:
+            else:       # takes the department value entered by the user and save it in DB and displays a message
                 row.department = studentDepartment
                 row.save()
                 messages.info(request, 'Department Assigned Successfully!')
                 return redirect("student-department-assignment.html")
+            
         except ObjectDoesNotExist:
             messages.error(request, 'Invalid ID or Name')
             return redirect("student-department-assignment.html")
