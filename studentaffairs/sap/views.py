@@ -70,7 +70,6 @@ def add_student(request):
 
 
 def edit_student_data(request):
-
     if request.method == 'POST':  # get all field values
         studentID = request.POST.get('studentID')
 
@@ -110,7 +109,7 @@ def edit_student_data(request):
                         messages.info(request, 'Email already used')
                         return redirect("edit-student-data.html?studID="+studentID)
 
-                if studentLevel == "lvl1" or studentLevel == "lvl2":
+                if studentLevel == "Lv1" or studentLevel == "Lv2":
                     row.department = "General"
                 # update student info in the database with the current input
                 row.name = studentName.lower()
@@ -128,6 +127,7 @@ def edit_student_data(request):
                 messages.error(request, 'Edit failed')
             return redirect("edit-student-data.html?studID="+studentID)
 
+    # when this page is accessed, browser by default sends a GET request
     elif request.method == 'GET':   # get student info
         studentID = request.GET.get('studID')
         if studentID is not None:  # if ID field is not empty
@@ -165,23 +165,22 @@ def search_student(request):
 def student_department_assignment(request):
     inform = informations.objects.all()
 
-    if request.method == 'POST':
+    if request.method == 'POST':  # get user input
         studentID = request.POST['studentID']
         studentName = request.POST['name']
-        # line 183 , 184 , 185 gets the user's input
         studentDepartment = request.POST['selected_department']
         try:
 
             # retrieves the data from DB with id entered by the user
             row = informations.objects.get(studID=studentID)
-            if studentName.lower() != row.name:     # if not found , display error message
+            if studentName.lower() != row.name:     # if not found, display error message
                 raise ObjectDoesNotExist
-            # if the level of the student id is below level 3 , display error message
-            if row.level == "lvl1" or row.level == "lvl2":
+            # if the level of the student is below level 3, display error message
+            if row.level == "Lv1" or row.level == "Lv2":
                 messages.error(
                     request, 'Cannot assign department to students lower than level 3')
                 return redirect("student-department-assignment.html")
-            else:       # takes the department value entered by the user and save it in DB and displays a message
+            else:       # takes the department value entered by the user and saves it in DB and displays a message
                 row.department = studentDepartment
                 row.save()
                 messages.info(request, 'Department Assigned Successfully!')
@@ -198,7 +197,7 @@ def student_department_assignment(request):
 def view_students(request):
     inform = informations.objects.all()
 
-    if(request.method == 'POST'):
+    if request.method == 'POST':
 
         studentStatus = request.POST['status_In']
         student_ID = request.POST['studentViewID']
