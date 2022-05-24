@@ -5,6 +5,7 @@ import json
 from multiprocessing import context
 from pickle import TRUE
 from ssl import AlertDescription
+from turtle import title
 from unicodedata import name
 from unittest import result
 from urllib import request
@@ -161,6 +162,16 @@ def search_student(request):
     data = {'is_found': is_found, 'inform': list(inform.values())}
     return JsonResponse(data)
 
+
+def autocomplete(request):
+    if 'term' in request.GET:
+        qs=informations.objects.filter(name__istartswith=request.GET.get('term'))
+        titles=list()
+        for i in qs:
+            if(i.status=="Active"):
+                titles.append(i.name)
+        return JsonResponse(titles,safe=False)
+    return render(request,'search-student.html')
 
 def student_department_assignment(request):
     inform = informations.objects.all()
