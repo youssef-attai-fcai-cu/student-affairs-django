@@ -163,6 +163,14 @@ def search_student(request):
     return JsonResponse(data)
 
 
+def nameFromID(request):
+    student_ID = request.GET.get('id')
+    is_found = informations.objects.all().filter(studID=student_ID).exists()
+    inform = informations.objects.all()
+    data = {'is_found': is_found, 'inform': list(inform.values())}
+    return JsonResponse(data)
+
+
 def autocomplete(request):
     if 'term' in request.GET:
         qs=informations.objects.filter(name__istartswith=request.GET.get('term'))
@@ -172,6 +180,17 @@ def autocomplete(request):
                 titles.append(i.name)
         return JsonResponse(titles,safe=False)
     return render(request,'search-student.html')
+
+
+def autocomplete_ID(request):
+    if 'term' in request.GET:
+        qs=informations.objects.filter(studID__istartswith=request.GET.get('term'))
+        titles=list()
+        for i in qs:
+                titles.append(i.studID)
+        return JsonResponse(titles,safe=False)
+    return render(request,'search-student.html')
+
 
 def student_department_assignment(request):
     inform = informations.objects.all()
