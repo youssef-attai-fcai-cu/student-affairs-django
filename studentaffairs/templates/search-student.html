@@ -83,6 +83,9 @@
             <th>Name</th>
             <th id="ID">ID</th>
             <th id="Year">Date</th>
+            <th>GPA</th>
+            <th>Level</th>
+            <th>Department</th>
           </tr>
         </thead>
         <tbody id="SS-tbody">
@@ -104,7 +107,7 @@
     <script src="{% static 'assets/java script/Search-Student.js'%}"></script>
     <script>
       //----------------------------------------------------Ajax-----------------------------------------------------------------
-      var temp, temp2, temp3, txt2;
+      var temp, temp2, temp3,temp4,temp5,temp6, txt2;
       document.getElementById("row1").style.display = "none";
       document.getElementById("SS-tbody").style.display = "none";
       $("#name-entered").change(function (e) {
@@ -138,17 +141,14 @@
                   +"</td>";
                   temp2 = "<td>" + data.inform[i].studID + "</td>";
                   temp3 = "<td>" + data.inform[i].date + "</td>";
-                  txt2 = $("<tr></tr>");
-                  txt2.append(temp, temp2, temp3);
+                  temp4 = "<td>" + data.inform[i].gpa + "</td>";
+                  temp5 = "<td>" + data.inform[i].level + "</td>";
+                  temp6 = "<td>" + data.inform[i].department + "</td>";
+                  txt2 = $("<tr onclick='view_students ()'></tr>");
+                  txt2.append(temp, temp2, temp3,temp4,temp5,temp6);
                   $("#SS-tbody").append(txt2);
                 }
               }
-
-              document
-                .getElementById("table-body")
-                .addEventListener("click", function () {
-                  window.open("student-department-assignment.html", "_blank");
-                });
             } else {
               document.getElementById("row1").style.display = "none";
               document.getElementById("SS-tbody").style.display = "none";

@@ -30,3 +30,7 @@ el.addEventListener("keypress", function (event) {
     event.preventDefault();
   }
 });
+
+function view_students () {
+  window.open("student-department-assignment.html", "_blank");
+};
