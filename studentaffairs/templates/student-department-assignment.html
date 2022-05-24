@@ -16,6 +16,7 @@
       type="image/x-icon"
       href="{% static 'assets/images/Logo-FCAI.jpg'%}"
     />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <title>Assign Department</title>
   </head>
   <body id="assign-dept-body">
@@ -178,6 +179,8 @@
 
     <!-- to allow jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script type="text/javascript">
       // to disallow "paste" functionality
       $(document).ready(function () {
@@ -186,8 +189,42 @@
         });
       });
     </script>
+    <script>
+       $(function(){
+        $("#student-id").autocomplete({
+          source:'{% url "autocomplete_ID" %}'
+        });
+      });
 
+      $("#student-id").change(function () {
+        var id = $(this).val();
+        $.ajax({
+          url:'{% url "nameFromID" %}',
+          data: {
+            id: id,
+          },
+          dataType: "json",
+          success: function (data) {
+            if (data.is_found) {
+              for (var i in data.inform) {
+                if (
+                  data.inform[i].studID == id
+                ) {
+                  $("#student-name").val(data.inform[i].name);
+                }
+              }
+            } else {
+              alert("there is not a studnet with this ID: "+id)
+              $("#student-name").val("");
+              $("#student-id").val("")
+
+            }
+          },
+        });
+      });
+    </script>
     <script src="{% static 'assets/java script/Drop-Down.js'%}"></script>
     <script src="{% static 'assets/java script/Assign-Department.js'%}"></script>
+    
   </body>
 </html>
