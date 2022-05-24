@@ -13,6 +13,6 @@ urlpatterns = [
     path('autocomplete',  views.autocomplete, name='autocomplete'),
     path('student-department-assignment.html',
          views.student_department_assignment, name='student-department-assignment'),
-    path('view-students.html', views.view_students, name='view-students'),
+    path('view-students.html', views.change_status, name='change'),
 
 ]

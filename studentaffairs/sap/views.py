@@ -205,17 +205,16 @@ def student_department_assignment(request):
         return render(request, 'student-department-assignment.html', {'inform': inform})
 
 
-def view_students(request):
-    inform = informations.objects.all()
-
+    
+def change_status(request):
+    inform=informations.objects.all()
     if request.method == 'POST':
-
         studentStatus = request.POST['status_In']
         student_ID = request.POST['studentViewID']
-        row = informations.objects.get(studID=student_ID)
+        row = informations.objects.get(studID=int(student_ID))
         row.status = studentStatus
         row.save()
-        messages.info(request, "Student with ID: "+str(student_ID) +
-                      " changed status to "+str(studentStatus))
+        dictionary={"ID":student_ID, "status":row.status}
+        return JsonResponse(dictionary)
 
     return render(request, 'view-students.html', {'inform': inform})
