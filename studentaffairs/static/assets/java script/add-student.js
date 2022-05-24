@@ -84,7 +84,7 @@ function checkGpa(gpaInput) {
   return true;
 }
 
-function phoneNumKey(evt) {
+function onlyNumberKey(evt) {
   var ASCIICode = evt.which;
   for (let i = 0; i < validKeyCodes.length; i++) {
     if (ASCIICode == validKeyCodes[i]) {
@@ -92,11 +92,6 @@ function phoneNumKey(evt) {
     }
   }
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-    // if (ASCIICode == 189) {
-    //   return;
-    // } else if (ASCIICode >= 96 && ASCIICode <= 105) {
-    //   return;
-    // }
     if (ASCIICode >= 96 && ASCIICode <= 105) {
       return;
     }
@@ -145,7 +140,7 @@ inputName.addEventListener("keydown", onlyLetterKey); // force letter input for 
 
 gpaInput.addEventListener("keydown", gpaNumbers); // force number input for gpa
 
-phoneInput.addEventListener("keydown", phoneNumKey); // force number input for phone field
+phoneInput.addEventListener("keydown", onlyNumberKey); // force number input for phone field
 
 addBtn.addEventListener("click", successfulAdd); // validate fields, send data to server
 
@@ -157,7 +152,7 @@ let departmentSelectOptions = document.querySelectorAll(`#department option`);
 selectLevel.addEventListener("change", function (ev) {
   let value = selectLevel.value;
   selectDepartment.value = "Empty";
-  if (value === "lvl1" || value === "lvl2") {
+  if (value === "Lv1" || value === "Lv2") {
     departmentSelectOptions.forEach(function (option) {
       if (option.value !== "General" && option.value !== "Empty") {
         option.style.display = "none";

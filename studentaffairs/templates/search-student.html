@@ -66,7 +66,12 @@
         >try names from view students page (only active students will
         appear)</span
       >
-      <button type="button" class="search-btn" onclick="validation()" onclick="document.getElementById('myInput').value = ''">
+      <button
+        type="button"
+        class="search-btn"
+        onclick="validation()"
+        onclick="document.getElementById('myInput').value = ''"
+      >
         <p id="s">Search</p>
       </button>
     </form>
@@ -89,7 +94,7 @@
     <!-- to allow jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-      // to disallow cut, copy or paste functionality
+      // to disallow "paste" functionality
       $(document).ready(function () {
         $("body").bind("paste", function (e) {
           e.preventDefault();
