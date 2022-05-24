@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{% static 'assets/CSS/styles.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/CSS/edit-student.css'%}" />
     <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
+    />
+    <link
       rel="icon"
       type="image/x-icon"
       href="{% static 'assets/images/Logo-FCAI.jpg'%}"
@@ -69,6 +73,7 @@
               name="studentID"
               placeholder="Enter an ID"
               required
+              autocomplete="off"
               value="{{ inform.studID }}"
             />
             <span class="fetch-tooltip">Input ID to fetch student details</span>
@@ -82,6 +87,7 @@
             <label><b>Student Name</b></label>
             <input
               type="text"
+              id="student-name"
               name="name"
               placeholder="Enter a name"
               required
@@ -216,6 +222,8 @@
     </div>
     <!-- to allow jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script type="text/javascript">
       let selectedDepartment = "{{inform.department}}";
       let selectedStatus = "{{inform.status}}";
@@ -230,6 +238,12 @@
       $(document).ready(function () {
         $("body").bind("paste", function (e) {
           e.preventDefault();
+        });
+      });
+
+      $(function () {
+        $("#studID").autocomplete({
+          source: '{% url "autocomplete_ID" %}',
         });
       });
     </script>
