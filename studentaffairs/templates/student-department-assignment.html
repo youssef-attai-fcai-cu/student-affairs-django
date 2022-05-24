@@ -44,9 +44,10 @@
         <li>
           <a
             href="student-department-assignment.html"
-            name="student-department-assignment"
-          >
+            name="student-department-assignment">
+
             Student department assignment
+          
           </a>
         </li>
       </ul>
@@ -96,8 +97,9 @@
 
           <div class="select-box" style="margin-top: 1rem">
             <label style="margin-top: 1rem; margin-right: 1rem"
-              ><b>Choose Department</b></label
-            >
+              ><b>Choose Department</b>
+            </label>
+
             <div class="select-box-container">
               <div class="options-container">
                 <div class="option">
@@ -181,16 +183,21 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
     <script type="text/javascript">
+      
       // to disallow "paste" functionality
       $(document).ready(function () {
         $("body").bind("paste", function (e) {
           e.preventDefault();
         });
       });
+
     </script>
+
     <script>
-       $(function(){
+      // to allow autocomplete of the ID with data in DB and auto-populate the name when the id is entered and found
+      $(function(){
         $("#student-id").autocomplete({
           source:'{% url "autocomplete_ID" %}'
         });
@@ -204,8 +211,10 @@
             id: id,
           },
           dataType: "json",
-          success: function (data) {
-            if (data.is_found) {
+          success: function (data) 
+          {
+            if (data.is_found) 
+            {
               for (var i in data.inform) {
                 if (
                   data.inform[i].studID == id
@@ -213,11 +222,11 @@
                   $("#student-name").val(data.inform[i].name);
                 }
               }
-            } else {
+            } 
+            else {
               alert("there is not a studnet with this ID: "+id)
               $("#student-name").val("");
               $("#student-id").val("")
-
             }
           },
         });
