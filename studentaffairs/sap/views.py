@@ -1,23 +1,13 @@
-from cmath import inf
-from email import message
-import imp
-import json
-from multiprocessing import context
-from pickle import TRUE
-from ssl import AlertDescription
-from turtle import title
-from unicodedata import name
-from unittest import result
-from urllib import request
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import informations
+from random import randint
+
 from django.contrib import messages
-from django.http import JsonResponse
-from random import randint, randrange
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.edit import CreateView
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView
+
+from .models import informations
 
 
 # import pyautogui as pag
@@ -25,7 +15,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def index(request):
-
     return render(request, 'index.html')
 
 
@@ -52,15 +41,18 @@ def add_student(request):
             return redirect('add-student.html')
         else:
             # generate another ID if the current one is already used
-            while(informations.objects.all().filter(studID=studentID)):
+            while (informations.objects.all().filter(studID=studentID)):
                 studentID = 20200000 + randint(100, 999)
                 if informations.objects.all().filter(studID=studentID):
                     continue
                 else:
                     break
 
-            newStudent = informations.objects.create(name=studentName.lower(), studID=studentID,  level=studentLevel, gender=studentGender, status=studentStatus, gpa=studentGpa, date=studentBirth,
-                                                     department=studentDepartment, mobile=studentPhone, email=studentEmail)
+            newStudent = informations.objects.create(name=studentName.lower(), studID=studentID, level=studentLevel,
+                                                     gender=studentGender, status=studentStatus, gpa=studentGpa,
+                                                     date=studentBirth,
+                                                     department=studentDepartment, mobile=studentPhone,
+                                                     email=studentEmail)
             newStudent.save()  # create and save the student into the database
             messages.info(request, 'Student added successfully')
             messages.info(request, 'Student ID is ' + str(studentID))
@@ -84,7 +76,7 @@ def edit_student_data(request):
             except ObjectDoesNotExist:
                 messages.error(request, 'Delete failed, invalid ID')
             return redirect("edit-student-data.html")
-        else:                   # update student info
+        else:  # update student info
             try:
                 studentName = request.POST['name']
                 studentGpa = request.POST['gpa']
@@ -101,14 +93,14 @@ def edit_student_data(request):
                         pass
                     else:
                         messages.info(request, 'Phone number already used')
-                        return redirect("edit-student-data.html?studID="+studentID)
+                        return redirect("edit-student-data.html?studID=" + studentID)
 
                 if informations.objects.all().filter(email=studentEmail):  # check if new email is already used
                     if row.email == studentEmail:  # if it's the same as the current student's, don't do anything
                         pass
                     else:
                         messages.info(request, 'Email already used')
-                        return redirect("edit-student-data.html?studID="+studentID)
+                        return redirect("edit-student-data.html?studID=" + studentID)
 
                 if studentLevel == "Lv1" or studentLevel == "Lv2":
                     row.department = "General"
@@ -126,10 +118,10 @@ def edit_student_data(request):
                 messages.info(request, 'Updated student successfully')
             except ObjectDoesNotExist:
                 messages.error(request, 'Edit failed')
-            return redirect("edit-student-data.html?studID="+studentID)
+            return redirect("edit-student-data.html?studID=" + studentID)
 
     # when this page is accessed, browser by default sends a GET request
-    elif request.method == 'GET':   # get student info
+    elif request.method == 'GET':  # get student info
         studentID = request.GET.get('studID')
         if studentID is not None:  # if ID field is not empty
             try:
@@ -147,7 +139,8 @@ def edit_student_data(request):
 
 def Homepage(request):
     inform = informations.objects.all()
-    return render(request, 'Homepage.html', {'inform': inform})
+    print("HERE")
+    return render(request, 'templates/Homepage.html', {'inform': inform})
 
 
 class search(CreateView):
@@ -173,23 +166,23 @@ def nameFromID(request):
 
 def autocomplete(request):
     if 'term' in request.GET:
-        qs=informations.objects.filter(name__istartswith=request.GET.get('term'))
-        titles=list()
+        qs = informations.objects.filter(name__istartswith=request.GET.get('term'))
+        titles = list()
         for i in qs:
-            if(i.status=="Active"):
+            if (i.status == "Active"):
                 titles.append(i.name)
-        return JsonResponse(titles,safe=False)
-    return render(request,'search-student.html')
+        return JsonResponse(titles, safe=False)
+    return render(request, 'search-student.html')
 
 
 def autocomplete_ID(request):
     if 'term' in request.GET:
-        qs=informations.objects.filter(studID__istartswith=request.GET.get('term'))
-        titles=list()
+        qs = informations.objects.filter(studID__istartswith=request.GET.get('term'))
+        titles = list()
         for i in qs:
-                titles.append(i.studID)
-        return JsonResponse(titles,safe=False)
-    return render(request,'search-student.html')
+            titles.append(i.studID)
+        return JsonResponse(titles, safe=False)
+    return render(request, 'search-student.html')
 
 
 def student_department_assignment(request):
@@ -203,14 +196,14 @@ def student_department_assignment(request):
 
             # retrieves the data from DB with id entered by the user
             row = informations.objects.get(studID=studentID)
-            if studentName.lower() != row.name:     # if not found, display error message
+            if studentName.lower() != row.name:  # if not found, display error message
                 raise ObjectDoesNotExist
             # if the level of the student is below level 3, display error message
             if row.level == "Lv1" or row.level == "Lv2":
                 messages.error(
                     request, 'Cannot assign department to students lower than level 3')
                 return redirect("student-department-assignment.html")
-            else:       # takes the department value entered by the user and saves it in DB and displays a message
+            else:  # takes the department value entered by the user and saves it in DB and displays a message
                 row.department = studentDepartment
                 row.save()
                 messages.info(request, 'Department Assigned Successfully!')
@@ -224,16 +217,15 @@ def student_department_assignment(request):
         return render(request, 'student-department-assignment.html', {'inform': inform})
 
 
-    
 def change_status(request):
-    inform=informations.objects.all()
+    inform = informations.objects.all()
     if request.method == 'POST':
         studentStatus = request.POST['status_In']
         student_ID = request.POST['studentViewID']
         row = informations.objects.get(studID=int(student_ID))
         row.status = studentStatus
         row.save()
-        dictionary={"ID":student_ID, "status":row.status}
+        dictionary = {"ID": student_ID, "status": row.status}
         return JsonResponse(dictionary)
 
     return render(request, 'view-students.html', {'inform': inform})
